@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:aop="http://www.springframework.org/schema/aop" xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context-3.0.xsd
+http://www.springframework.org/schema/tx
+http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+http://www.springframework.org/schema/aop
+http://www.springframework.org/schema/aop/spring-aop-3.0.xsd"
+       default-autowire="byName">
+       
+    <bean id="mybatisMonitorInterceptor" class="com.github.javaclub.sword.spring.MybatisMonitorInterceptor" />
+    
+    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="kamemberDataSource" />
+	</bean>
+
+	<!-- 数据库事务管理器 -->
+    <bean id="kamemberTransactionTemplate"
+          class="org.springframework.transaction.support.TransactionTemplate">
+        <property name="transactionManager" ref="kamemberTransactionManager" />
+    </bean>
+    <bean id="kamemberTransactionManager"
+          class="org.springframework.jdbc.datasource.DataSourceTransactionManager" autowire="byName">
+        <property name="dataSource" ref="kamemberDataSource" />
+    </bean>
+    <!-- 基于注解的声明式事务 -->
+    <tx:annotation-driven transaction-manager="kamemberTransactionManager" />
+    
+    <bean id="kastatTransactionTemplate"
+          class="org.springframework.transaction.support.TransactionTemplate">
+        <property name="transactionManager" ref="kastatTransactionManager" />
+    </bean>
+    <bean id="kastatTransactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager"
+		autowire="byName">
+		<property name="dataSource" ref="kastatDataSource" />
+	</bean>
+	
+	<bean id="portraitTransactionTemplate"
+          class="org.springframework.transaction.support.TransactionTemplate">
+        <property name="transactionManager" ref="portraitTransactionManager" />
+    </bean>
+    <bean id="portraitTransactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager"
+		autowire="byName">
+		<property name="dataSource" ref="portraitDataSource" />
+	</bean>
+
+    <!-- 数据库SessionFactory -->
+    <bean id="kamemberSqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <!-- 实例化sqlSessionFactory时需要使用上述配置好的数据源以及SQL映射文件 -->
+        <property name="dataSource" ref="kamemberDataSource"/>
+        <property name="mapperLocations" value="classpath*:conf/sqlmap/kamember/*.mybatis.xml" />
+        <property name="plugins">
+            <array>
+                <ref bean ="mybatisMonitorInterceptor" />
+            </array>
+        </property>
+    </bean>
+    <bean id="kastatSqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <!-- 实例化sqlSessionFactory时需要使用上述配置好的数据源以及SQL映射文件 -->
+        <property name="dataSource" ref="kastatDataSource"/>
+        <property name="mapperLocations" value="classpath*:conf/sqlmap/userstat/*.mybatis.xml" />
+        <property name="plugins">
+            <array>
+                <ref bean ="mybatisMonitorInterceptor" />
+            </array>
+        </property>
+    </bean>
+    <bean id="portraitSqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <!-- 实例化sqlSessionFactory时需要使用上述配置好的数据源以及SQL映射文件 -->
+        <property name="dataSource" ref="portraitDataSource"/>
+        <property name="mapperLocations" value="classpath*:conf/sqlmap/portrait/*.mybatis.xml" />
+        <property name="plugins">
+            <array>
+                <ref bean ="mybatisMonitorInterceptor" />
+            </array>
+        </property>
+    </bean>
+    
+
+	<!-- DAO自动scan并实例化 -->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="#{packagePrefix}#.dao" />
+        <property name="sqlSessionFactoryBeanName" value="kamemberSqlSessionFactory" />
+    </bean>
+    
+    <!-- <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="#{packagePrefix}#.userstat.dao" />
+        <property name="sqlSessionFactoryBeanName" value="kastatSqlSessionFactory" />
+    </bean>
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="#{packagePrefix}#.portrait.dao" />
+        <property name="sqlSessionFactoryBeanName" value="portraitSqlSessionFactory" />
+    </bean> -->
+    
+
+
+</beans>

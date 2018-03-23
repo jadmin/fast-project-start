@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<portable-config>
+
+    <config-file path="WEB-INF/classes/config/log4j.xml">
+        <replace xpath="//root/level/@value">INFO</replace>
+    </config-file>
+    
+    <config-file path="WEB-INF/classes/server.properties">
+		<replace key="dubbo.protocol.port">20880</replace>
+		<replace key="dubbo.protocol.register">true</replace>
+		<replace key="dubbo.registry.address">10.17.1.62:2181</replace>
+		<replace key="dubbo.registry.register">true</replace>
+		
+		<replace key="cache.redis.host">10.17.1.61</replace>
+		<replace key="cache.redis.port">6379</replace>
+		<replace key="cache.redis.password"></replace>
+		
+	</config-file>
+	
+</portable-config>

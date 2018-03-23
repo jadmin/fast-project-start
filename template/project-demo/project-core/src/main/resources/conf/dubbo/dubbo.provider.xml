@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd
+      http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 提供方应用信息，用于计算依赖关系 -->
+    <dubbo:application name="#{appName}#" />
+    
+    <dubbo:provider filter="monitorFilter,clearAsyncFlagFilter" />
+    
+    <!--开发环境默认不注册服务到注册中心 -->
+	<dubbo:registry protocol="zookeeper" address="${dubbo.registry.address}" register="${dubbo.registry.register}" />
+	
+	<!-- 用dubbo协议在20880端口暴露服务 -->
+	<dubbo:protocol name="dubbo" port="${dubbo.protocol.port}" threads="100" accesslog="true" register="${dubbo.protocol.register}" />
+	
+	<dubbo:service interface="#{packagePrefix}#.api.ZooPlayerService" ref="zooPlayerService" timeout="3000" retries="1" />
+
+	<dubbo:service interface="#{packagePrefix}#.api.KAUserReadService" ref="kAUserReadService" timeout="3000" retries="1" />
+	<dubbo:service interface="#{packagePrefix}#.api.KaConfigService" ref="kaConfigService" timeout="3000" retries="1" />
+	<dubbo:service interface="#{packagePrefix}#.api.UserSignService" ref="userSignService" timeout="3000" retries="1" />
+	<dubbo:service interface="#{packagePrefix}#.api.open.LianhuaApiService" ref="lianhuaApiService" timeout="6000" retries="1" />
+	<dubbo:service interface="#{packagePrefix}#.api.UserCardService" ref="userCardService" timeout="3000" retries="1" />
+	<dubbo:service interface="#{packagePrefix}#.api.KAUserGroupService" ref="kaUserGroupService" timeout="3000" retries="1" />
+	<dubbo:service interface="#{packagePrefix}#.api.KAUserWriteService" ref="kAUserWriteService" timeout="6000" retries="1" />
+	<dubbo:service interface="#{packagePrefix}#.api.KaUserSearchService" ref="kaUserSearchService" timeout="5000" retries="1" />
+	
+	<!-- 对任务调度中心暴露的服务 -->
+	<dubbo:service interface="#{packagePrefix}#.api.ScheduleJobApiService" ref="scheduleJobApiService" 
+		cluster="failfast" timeout="10000" retries="1" filter="jobMonitor" />
+	
+
+</beans>

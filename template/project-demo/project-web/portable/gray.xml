@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<portable-config>
+
+	<config-file path="WEB-INF/classes/config/log4j.xml">
+        <replace xpath="//root/level/@value">WARN</replace>
+    </config-file>
+
+	<config-file path="WEB-INF/classes/server.properties">
+		<replace key="config.env">gray</replace>
+		<replace key="config.server.env">gray</replace>
+		<replace key="config.server.appId">3</replace>
+		<replace key="config.server.appKey">DvgfkgfluXU=</replace>
+		<replace key="dubbo.protocol.port">20880</replace>
+		<replace key="dubbo.protocol.register">true</replace>
+		<replace key="dubbo.registry.address">10.192.118.172:2181</replace>
+		<replace key="dubbo.registry.register">true</replace>
+		
+		<replace key="sql.logger.level">INFO</replace>
+		
+		<replace key="cache.redis.host">10.217.31.108</replace>
+		<replace key="cache.redis.port">6379</replace>
+		<replace key="cache.redis.password">Lj54&$#!uterK48</replace>
+		
+		
+	</config-file>
+
+</portable-config>
+

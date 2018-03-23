@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:task="http://www.springframework.org/schema/task" xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:cache="http://www.springframework.org/schema/cache"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context/spring-context-3.0.xsd 
+		http://www.springframework.org/schema/tx 
+		http://www.springframework.org/schema/tx/spring-tx-3.0.xsd 
+		http://www.springframework.org/schema/aop
+		http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+		http://www.springframework.org/schema/task
+		http://www.springframework.org/schema/task/spring-task-3.0.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd
+		http://www.springframework.org/schema/cache 
+    	http://www.springframework.org/schema/cache/spring-cache.xsd
+		"
+	default-autowire="byName">
+	
+	<bean class="com.github.javaclub.sword.spring.SpringContextUtil" />
+	
+	<bean id="dbConfigManager" class="com.shangou.cdl.client.config.DbConfigManager" init-method="init">
+        
+        <property name="appId" value="79"/>
+        <property name="appKey" value="ECZX9+b3vIM="/>
+        <property name="appName" value="kamember"/>
+        <property name="env" value="daily"/>
+        
+        <!-- 
+		<property name="appId" value="18"/>
+        <property name="appKey" value="JeVtxxp/npc="/>
+        <property name="appName" value="market"/>
+        <property name="env" value="daily"/>
+         -->
+    </bean>
+
+    <!-- kamember数据库 -->
+    <bean id="kamemberDataSource" class="com.shangou.cdl.client.group.SGroupDataSource">
+        <!-- <property name="groupName" value="group1_kamember"/> -->
+        <property name="groupName" value="group2_ka_stat"/>
+        <property name="dbConfigManager" ref="dbConfigManager"/>
+    </bean>
+    
+    <!-- 
+    <bean id="kamemberSqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="kamemberDataSource"/>
+        <property name="mapperLocations" value="classpath*:conf/sqlmap/kamember/*.mybatis.xml" />
+    </bean>
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="#{packagePrefix}#.dao" />
+        <property name="sqlSessionFactoryBeanName" value="kamemberSqlSessionFactory" />
+    </bean>
+     -->
+	
+
+</beans>

@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+	<appender name="CONSOLE" class="org.apache.log4j.ConsoleAppender">
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d - %c:%L -%-4r [%t] %-5p %x - %m%n" />
+		</layout>
+	</appender>
+
+	<appender name="traceAppender" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="file" value="/data/www/logs/apps/8080-kamember/app/trace.log" />
+		<param name="DatePattern" value="'.'yyyy-MM-dd" />
+		<param name="append" value="true" />
+		<param name="encoding" value="UTF-8" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d %-5p %m%n" />
+		</layout>
+	</appender>
+
+	<appender name="PROJECT" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="file" value="/data/www/logs/apps/8080-kamember/app/main.log" />
+		<param name="DatePattern" value="'.'yyyy-MM-dd" />
+		<param name="append" value="true" />
+		<param name="encoding" value="UTF-8" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern"
+				value="%d [%X{requestURIWithQueryString}] %-5p %c{2}:%L - %m%n" />
+		</layout>
+	</appender>
+
+	<appender name="SQL" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="file" value="/data/www/logs/apps/8080-kamember/app/sql.log" />
+		<param name="DatePattern" value="'.'yyyy-MM-dd" />
+		<param name="append" value="true" />
+		<param name="encoding" value="UTF-8" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d %-5p %m%n" />
+		</layout>
+	</appender>
+	
+	<appender name="TIME_COST" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="file" value="/data/www/logs/apps/8080-kamember/app/time_cost.log" />
+		<param name="DatePattern" value="'.'yyyy-MM-dd" />
+		<param name="append" value="true" />
+		<param name="encoding" value="UTF-8" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d %-5p %m%n" />
+		</layout>
+	</appender>
+	
+	<appender name="MQ" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="file" value="/data/www/logs/apps/8080-kamember/app/mq_recieve.log" />
+		<param name="DatePattern" value="'.'yyyy-MM-dd" />
+		<param name="append" value="true" />
+		<param name="encoding" value="UTF-8" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d %-5p %m%n" />
+		</layout>
+	</appender>
+	
+	<appender name="SENDMQ" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="file" value="/data/www/logs/apps/8080-kamember/app/mq_send.log" />
+		<param name="DatePattern" value="'.'yyyy-MM-dd" />
+		<param name="append" value="true" />
+		<param name="encoding" value="UTF-8" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d %-5p %m%n" />
+		</layout>
+	</appender>
+	
+	<appender name="dubbo" class="org.apache.log4j.rolling.RollingFileAppender">
+		<param name="append" value="true" />
+		<param name="encoding" value="UTF-8" />
+		<rollingPolicy name="file"
+			class="org.apache.log4j.rolling.TimeBasedRollingPolicy">
+			<param name="FileNamePattern" value="/data/www/logs/apps/8080-kamember/app/dubbo.log.%d{yyyy-MM-dd}.gz" />
+			<param name="ActiveFileName" value="/data/www/logs/apps/8080-kamember/app/dubbo.log" />
+		</rollingPolicy>
+		<layout class="org.apache.log4j.EnhancedPatternLayout">
+			<param name="ConversionPattern" value="%d [%X{requestURIWithQueryString}] %-5p %c{2}:%L - %m%n" />
+		</layout>
+	</appender>
+
+
+	<root>
+		<level value="debug" />
+		<appender-ref ref="PROJECT" />
+		<appender-ref ref="CONSOLE" />
+	</root>
+
+	<!-- category 部分定义了特定包或者类的输出级别和方式，可以有多个 -->
+	<category name="org.apache.zookeeper">
+		<priority value="warn" />
+		<appender-ref ref="PROJECT" />
+		<appender-ref ref="CONSOLE" />
+	</category>
+	<category name="com.alibaba.dubbo">
+		<priority value="warn" />
+		<appender-ref ref="PROJECT" />
+		<appender-ref ref="CONSOLE" />
+	</category>
+	<category name="org.springframework">
+		<priority value="warn" />
+		<appender-ref ref="PROJECT" />
+		<appender-ref ref="CONSOLE" />
+	</category>
+	<category name="org.apache">
+		<priority value="warn" />
+		<appender-ref ref="PROJECT" />
+		<appender-ref ref="CONSOLE" />
+	</category>
+
+	<category name="org.apache.http">
+		<priority value="warn" />
+		<appender-ref ref="PROJECT" />
+		<appender-ref ref="CONSOLE" />
+	</category>
+
+	<category name="io.netty">
+		<priority value="warn" />
+		<appender-ref ref="PROJECT" />
+		<appender-ref ref="CONSOLE" />
+	</category>
+
+	<category name="org.I0Itec">
+		<priority value="warn" />
+		<appender-ref ref="PROJECT" />
+		<appender-ref ref="CONSOLE" />
+	</category>
+	
+	<category name="org.dozer">
+		<priority value="warn" />
+		<appender-ref ref="PROJECT" />
+		<appender-ref ref="CONSOLE" />
+	</category>
+	
+	<logger name="TraceLog" additivity="false">
+		<level value="INFO" />
+		<appender-ref ref="traceAppender" />
+	</logger>
+	
+	<logger name="timeCostLogger" additivity="false">
+		<level value="INFO" />
+		<appender-ref ref="TIME_COST" />
+	</logger>
+
+	<logger name="mqLogger" additivity="false">
+		<level value="INFO" />
+		<appender-ref ref="MQ" />
+	</logger>
+	
+	<logger name="sendMqLogger" additivity="false">
+		<level value="INFO" />
+		<appender-ref ref="SENDMQ" />
+	</logger>
+	
+	<logger name="sqlLogger" additivity="false">
+		<level value="${sql.logger.level}" />
+		<appender-ref ref="SQL" />
+	</logger>
+	
+	<logger name="dubbo.accesslog" additivity="false">
+		<level value="warn" />
+		<appender-ref ref="dubbo" />
+	</logger>
+
+</log4j:configuration>
