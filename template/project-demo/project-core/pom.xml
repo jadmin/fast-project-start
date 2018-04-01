@@ -213,8 +213,8 @@
 
 
 		<dependency>
-			<groupId>com.shangou.tmq</groupId>
-			<artifactId>tmq-client</artifactId>
+			<groupId>com.github.javaclub</groupId>
+			<artifactId>mq</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>com.github.javaclub</groupId>

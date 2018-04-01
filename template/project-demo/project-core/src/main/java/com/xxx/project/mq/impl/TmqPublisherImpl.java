@@ -19,9 +19,9 @@ import org.springframework.stereotype.Component;
 import com.github.javaclub.sword.core.Strings;
 import com.github.javaclub.sword.util.ByteUtil;
 import #{packagePrefix}#.mq.TmqPublisher;
-import com.shangou.tmq.client.producer.Producer;
-import com.shangou.tmq.client.producer.SendResult;
-import com.shangou.tmq.client.producer.message.PubMessage;
+import com.github.javaclub.mq.client.producer.Producer;
+import com.github.javaclub.mq.client.producer.SendResult;
+import com.github.javaclub.mq.client.producer.message.PubMessage;
 
 /**
  * TmqPublisherImpl

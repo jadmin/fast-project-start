@@ -22,9 +22,9 @@ import com.github.javaclub.sword.cache.CacheManager;
 import com.github.javaclub.sword.core.Entry;
 import com.github.javaclub.sword.domain.ContextParam;
 import com.github.javaclub.sword.core.Strings;
-import com.shangou.tmq.client.customer.message.MessageListener;
-import com.shangou.tmq.client.customer.message.SubMessage;
-import com.shangou.tmq.client.customer.message.SubscribeStatus;
+import com.github.javaclub.mq.client.customer.message.MessageListener;
+import com.github.javaclub.mq.client.customer.message.SubMessage;
+import com.github.javaclub.mq.client.customer.message.SubscribeStatus;
 
 /**
  * TmqDispatcher 

@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 import com.github.javaclub.sword.core.Entry;
 import com.github.javaclub.sword.domain.ContextParam;
 import com.github.javaclub.sword.domain.SerializableObject;
-import com.shangou.tmq.client.customer.message.SubMessage;
+import com.github.javaclub.mq.client.customer.message.SubMessage;
 import #{packagePrefix}#.mq.TmqDispatcher;
 import #{packagePrefix}#.mq.TmqProcessor;
 import #{packagePrefix}#.mq.listener.processor.ReceiveLongProcessor;

@@ -20,8 +20,8 @@ import com.github.javaclub.sword.BizException;
 import com.github.javaclub.sword.core.B;
 import com.github.javaclub.sword.core.Entry;
 import com.github.javaclub.sword.core.Strings;
-import com.shangou.tmq.client.customer.Customer;
-import com.shangou.tmq.client.customer.message.MessageListener;
+import com.github.javaclub.mq.client.customer.Customer;
+import com.github.javaclub.mq.client.customer.message.MessageListener;
 import #{packagePrefix}#.mq.TmqReciever;
 import #{packagePrefix}#.mq.listener.TestDummyListener;
 

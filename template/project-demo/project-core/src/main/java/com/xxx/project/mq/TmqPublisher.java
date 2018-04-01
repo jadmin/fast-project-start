@@ -9,7 +9,7 @@ package #{packagePrefix}#.mq;
 
 import java.io.Serializable;
 
-import com.shangou.tmq.client.producer.SendResult;
+import com.github.javaclub.mq.client.producer.SendResult;
 
 /**
  * TmqPublisher 消息发布统一处理

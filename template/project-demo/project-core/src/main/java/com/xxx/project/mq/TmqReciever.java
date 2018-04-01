@@ -8,7 +8,7 @@
 package #{packagePrefix}#.mq;
 
 import com.github.javaclub.sword.core.Entry;
-import com.shangou.tmq.client.customer.message.MessageListener;
+import com.github.javaclub.mq.client.customer.message.MessageListener;
 
 /**
  * TmqReciever 消息订阅统一处理
