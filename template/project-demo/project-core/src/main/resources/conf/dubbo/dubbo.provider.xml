@@ -8,7 +8,7 @@
     <!-- 提供方应用信息，用于计算依赖关系 -->
     <dubbo:application name="#{appName}#" />
     
-    <dubbo:provider filter="monitorFilter,clearAsyncFlagFilter" />
+    <dubbo:provider filter="monitorFilter" />
     
     <!--开发环境默认不注册服务到注册中心 -->
 	<dubbo:registry protocol="zookeeper" address="${dubbo.registry.address}" register="${dubbo.registry.register}" />
@@ -18,14 +18,7 @@
 	
 	<dubbo:service interface="#{packagePrefix}#.api.ZooPlayerService" ref="zooPlayerService" timeout="3000" retries="1" />
 
-	<dubbo:service interface="#{packagePrefix}#.api.KAUserReadService" ref="kAUserReadService" timeout="3000" retries="1" />
-	<dubbo:service interface="#{packagePrefix}#.api.KaConfigService" ref="kaConfigService" timeout="3000" retries="1" />
-	<dubbo:service interface="#{packagePrefix}#.api.UserSignService" ref="userSignService" timeout="3000" retries="1" />
-	<dubbo:service interface="#{packagePrefix}#.api.open.LianhuaApiService" ref="lianhuaApiService" timeout="6000" retries="1" />
-	<dubbo:service interface="#{packagePrefix}#.api.UserCardService" ref="userCardService" timeout="3000" retries="1" />
-	<dubbo:service interface="#{packagePrefix}#.api.KAUserGroupService" ref="kaUserGroupService" timeout="3000" retries="1" />
-	<dubbo:service interface="#{packagePrefix}#.api.KAUserWriteService" ref="kAUserWriteService" timeout="6000" retries="1" />
-	<dubbo:service interface="#{packagePrefix}#.api.KaUserSearchService" ref="kaUserSearchService" timeout="5000" retries="1" />
+	<dubbo:service interface="#{packagePrefix}#.api.XyzService" ref="xyzService" timeout="3000" retries="1" />
 	
 	<!-- 对任务调度中心暴露的服务 -->
 	<dubbo:service interface="#{packagePrefix}#.api.ScheduleJobApiService" ref="scheduleJobApiService" 

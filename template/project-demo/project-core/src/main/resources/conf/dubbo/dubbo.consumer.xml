@@ -8,40 +8,40 @@
     <dubbo:consumer filter="monitorFilter" />
 
     <!-- 店铺 -->
-    <dubbo:reference id="shopReadService" interface="com.shandiangou.shop.api.ShopReadService" check="false" timeout="3000" lazy="true" />
-    <dubbo:reference id="shopManagerRelationService" interface="com.shandiangou.shop.api.ShopManagerRelationService" check="false" timeout="3000" lazy="true" />
-    <dubbo:reference id="shopRebornWriteService" interface="com.shandiangou.shop.api.ShopRebornWriteService" check="false" timeout="3000" lazy="true" />
-    <dubbo:reference id="shopOrganizeService" interface="com.shandiangou.shop.api.ShopOrganizeService" check="false" timeout="3000" lazy="true" />
-    <dubbo:reference id="shopPrivilegeService" interface="com.shandiangou.shop.api.ShopPrivilegeService" check="false" timeout="3000" lazy="true" />
+    <dubbo:reference id="shopReadService" interface="com.xxx.shop.api.ShopReadService" check="false" timeout="3000" lazy="true" />
+    <dubbo:reference id="shopManagerRelationService" interface="com.xxx.shop.api.ShopManagerRelationService" check="false" timeout="3000" lazy="true" />
+    <dubbo:reference id="shopRebornWriteService" interface="com.xxx.shop.api.ShopRebornWriteService" check="false" timeout="3000" lazy="true" />
+    <dubbo:reference id="shopOrganizeService" interface="com.xxx.shop.api.ShopOrganizeService" check="false" timeout="3000" lazy="true" />
+    <dubbo:reference id="shopPrivilegeService" interface="com.xxx.shop.api.ShopPrivilegeService" check="false" timeout="3000" lazy="true" />
     
     <!-- 交易 -->
-    <dubbo:reference id="tradeService" interface="com.shandiangou.trade.api.TradeService" check="false" timeout="3000" lazy="true" />
+    <dubbo:reference id="tradeService" interface="com.xxx.trade.api.TradeService" check="false" timeout="3000" lazy="true" />
     
     <!-- 搜索 -->
-    <dubbo:reference id="searchService" interface="com.sdg.search.service.SearchService" check="false" timeout="3000" lazy="true" />
+    <dubbo:reference id="searchService" interface="com.xxx.search.service.SearchService" check="false" timeout="3000" lazy="true" />
     <dubbo:reference id="landmarkSearchService" interface="com.sdg.search.service.LandmarkSearchService" check="false" timeout="5000" lazy="true" />
     
     <!--会员-->
-    <dubbo:reference id="userService" interface="com.shandiangou.member.service.UserService" check="false" timeout="3000" lazy="true" />
-    <dubbo:reference id="memberService" interface="com.shandiangou.member.service.MemberService" check="false" timeout="3000" lazy="true" />
-    <dubbo:reference id="kaRelationService" interface="com.shandiangou.member.service.KaRelationService" check="false" timeout="3000" lazy="true" />
-    <dubbo:reference id="kaUserReadService" interface="com.shandiangou.member.service.KaUserReadService" check="false" timeout="3000" lazy="true" />
-    <dubbo:reference id="kaUserWriteService" interface="com.shandiangou.member.service.KaUserWriteService" check="false" timeout="3000" lazy="true" />
-    <dubbo:reference id="wXApiService" interface="com.shandiangou.member.service.WXApiService" check="false" timeout="5000" lazy="true" />
-    <dubbo:reference id="userAddressService" interface="com.shandiangou.member.service.UserAddressService" check="false" timeout="5000" lazy="true" />
+    <dubbo:reference id="userService" interface="com.xxx.member.service.UserService" check="false" timeout="3000" lazy="true" />
+    <dubbo:reference id="memberService" interface="com.xxx.member.service.MemberService" check="false" timeout="3000" lazy="true" />
+    <dubbo:reference id="kaRelationService" interface="com.xxx.member.service.KaRelationService" check="false" timeout="3000" lazy="true" />
+    <dubbo:reference id="kaUserReadService" interface="com.xxx.member.service.KaUserReadService" check="false" timeout="3000" lazy="true" />
+    <dubbo:reference id="kaUserWriteService" interface="com.xxx.member.service.KaUserWriteService" check="false" timeout="3000" lazy="true" />
+    <dubbo:reference id="wXApiService" interface="com.xxx.member.service.WXApiService" check="false" timeout="5000" lazy="true" />
+    <dubbo:reference id="userAddressService" interface="com.xxx.member.service.UserAddressService" check="false" timeout="5000" lazy="true" />
     
     
-    <dubbo:reference id="kaGrouponApi4MarketService" interface="com.shandiangou.kagroupon.api.KaGrouponApi4MarketService" check="false" timeout="3000" lazy="true" />
+    <dubbo:reference id="kaGrouponApi4MarketService" interface="com.xxx.kagroupon.api.KaGrouponApi4MarketService" check="false" timeout="3000" lazy="true" />
     
     
     <!-- 营销 -->
-    <dubbo:reference id="hongbaoGenerateService" interface="com.shandiangou.market.open.api.HongbaoGenerateService" check="false" timeout="3000" lazy="true" />
-    <dubbo:reference id="weixinMembercardService" interface="com.shandiangou.market.open.api.weixin.card.WeixinMembercardService" check="false" timeout="5000" lazy="true" />
-    <dubbo:reference id="userCouponApiService" interface="com.shandiangou.market.open.api.UserCouponApiService" check="false" timeout="5000" lazy="true" />
-    <dubbo:reference id="orderRecordReadService" interface="com.shandiangou.market.manageclient.module.orderrecord.service.OrderRecordReadService" check="false" timeout="5000" lazy="true" />
+    <dubbo:reference id="hongbaoGenerateService" interface="com.xxx.market.open.api.HongbaoGenerateService" check="false" timeout="3000" lazy="true" />
+    <dubbo:reference id="weixinMembercardService" interface="com.xxx.market.open.api.weixin.card.WeixinMembercardService" check="false" timeout="5000" lazy="true" />
+    <dubbo:reference id="userCouponApiService" interface="com.xxx.market.open.api.UserCouponApiService" check="false" timeout="5000" lazy="true" />
+    <dubbo:reference id="orderRecordReadService" interface="com.xxx.market.manageclient.module.orderrecord.service.OrderRecordReadService" check="false" timeout="5000" lazy="true" />
     
-    <dubbo:reference id="kaCouponService" interface="com.shandiangou.market.open.api.KaCouponService" check="false" timeout="6000" lazy="true" />
-    <dubbo:reference id="kaActivityService" interface="com.shandiangou.market.open.api.KaActivityService" check="false" timeout="6000" lazy="true" />
+    <dubbo:reference id="kaCouponService" interface="com.xxx.market.open.api.KaCouponService" check="false" timeout="6000" lazy="true" />
+    <dubbo:reference id="kaActivityService" interface="com.xxx.market.open.api.KaActivityService" check="false" timeout="6000" lazy="true" />
     
     
     <!-- 短链接 -->
@@ -52,15 +52,15 @@
     <dubbo:reference id="msgCenterQueryService" interface="com.shangou.msgcenter.client.MsgCenterQueryService" check="false" timeout="3000" lazy="true" />
     
     <!-- 商品 -->
-    <dubbo:reference id="itemService" interface="com.shandiangou.itemcenter.open.api.ItemService" check="false" timeout="3000" lazy="true" />
-    <dubbo:reference id="spuApiService" interface="com.shandiangou.itemcenter.open.api.SpuApiService" check="false" timeout="5000" lazy="true" />
+    <dubbo:reference id="itemService" interface="com.xxx.itemcenter.open.api.ItemService" check="false" timeout="3000" lazy="true" />
+    <dubbo:reference id="spuApiService" interface="com.xxx.itemcenter.open.api.SpuApiService" check="false" timeout="5000" lazy="true" />
     
 
     <!-- 数据平台 -->
-    <dubbo:reference id="dataSpoutService" interface="com.shandiangou.dataspout.api.DataSpoutService" check="false" timeout="3000" lazy="true" version="0.0.1" />
+    <dubbo:reference id="dataSpoutService" interface="com.xxx.dataspout.api.DataSpoutService" check="false" timeout="3000" lazy="true" version="0.0.1" />
     
     <!-- 投放 -->
-    <dubbo:reference id="resourcePageWorkflowService" interface="com.shandiangou.dubbo.provider.service.ResourcePageWorkflowService" check="false" timeout="5000" lazy="true" />
+    <dubbo:reference id="resourcePageWorkflowService" interface="com.xxx.dubbo.provider.service.ResourcePageWorkflowService" check="false" timeout="5000" lazy="true" />
     
 
 </beans>

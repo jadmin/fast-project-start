@@ -42,13 +42,14 @@
 			<bean class="org.springframework.data.redis.serializer.StringRedisSerializer" />
 		</property>
 	</bean>
-	<bean id="kvCacheService" class="com.shandiangou.common.cache.impl.KVCacheServiceImpl">
+	
+	
+	<bean id="kvCacheService" class="#{packagePrefix}#.cache.impl.KVCacheServiceImpl">
 		<property name="redisTemplate">
 			<ref bean="redisTemplate" />
 		</property>
 	</bean>
-	
-	<bean id="kAMemberCacheManager" class="com.shandiangou.common.cache.impl.KAMemberCacheManager" />
+	<bean id="kAMemberCacheManager" class="#{packagePrefix}#.cache.impl.KAMemberCacheManager" />
 	
 
 </beans>

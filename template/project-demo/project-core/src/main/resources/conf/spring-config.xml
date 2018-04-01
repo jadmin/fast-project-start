@@ -24,8 +24,8 @@
 
 	<bean id="kaConfigFactory" class="com.github.javaclub.sword.config.ConfigFactory">
 		<property name="env" value="${config.env}" />
-		<property name="appId" value="${kamember.appId}" />
-		<property name="appKey" value="${kamember.appKey}" />
+		<property name="appId" value="${appname.appId}" />
+		<property name="appKey" value="${appname.appKey}" />
 		<property name="configEnumClass" value="#{packagePrefix}#.domain.enumtype.ConfigCenterKeys" />
 		 
 	</bean>

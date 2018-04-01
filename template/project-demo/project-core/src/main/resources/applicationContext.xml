@@ -22,7 +22,9 @@
 		"
 	default-autowire="byName">
 	
-	<context:component-scan base-package="com.shandiangou">
+	<!-- base-package 如果多个，可用“,”分隔 -->
+	<context:component-scan base-package="#{packagePrefix}#">
+		<!-- @Controller 以外的组件扫描，@Controller组件的扫描在spring-mvc.xml中有定义 -->
 		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller" />
 	</context:component-scan>
 	
@@ -47,13 +49,17 @@
         </property>
     </bean>
 	
+<!--  可自行配置好后再引入	
 	<import resource="classpath:conf/mysql.xml" />
-	<import resource="classpath:conf/mybatis.xml" />
+	<import resource="classpath:conf/mybatis.xml" /> -->
+	
 	<import resource="classpath:conf/spring-config.xml" />
 	<import resource="classpath:conf/spring-cache.xml" />
 	<import resource="classpath:conf/spring-aop.xml" />
-    <import resource="classpath:conf/dubbo/dubbo.provider.xml" />
-    <import resource="classpath:conf/dubbo/dubbo.consumer.xml" />
+	
+<!--  根据实际情况决定是否需要引入   
+	<import resource="classpath:conf/dubbo/dubbo.provider.xml" />
+    <import resource="classpath:conf/dubbo/dubbo.consumer.xml" /> -->
 
 
 	

@@ -56,10 +56,9 @@
     </filter-mapping>
     
     
-    <filter>
+<!--     <filter>
 		<filter-name>SessionFilter</filter-name>
 		<filter-class>#{packagePrefix}#.web.filter.AppSessionFilter</filter-class>
-		<!-- 选配。接口登陆检查，如果未登陆会直接拦截返回未登陆错误码-->
 		<init-param>
 			<param-name>loginCheckList</param-name>
 			<param-value>
@@ -79,7 +78,7 @@
 	<filter-mapping>
 	    <filter-name>LoginedUserFilter</filter-name>
 	    <url-pattern>/*</url-pattern>
-	</filter-mapping>
+	</filter-mapping> -->
 
     <servlet>
         <servlet-name>springMvc</servlet-name>
