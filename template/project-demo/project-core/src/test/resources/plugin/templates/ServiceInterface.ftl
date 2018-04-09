@@ -29,7 +29,7 @@ public interface ${Entity}Service {
 	 * @param ${entity}DO 业务实体DO
 	 * @return 操作结果
 	 */
-	ResultDO<Boolean> save(MyTestDO ${entity}DO);
+	ResultDO<Boolean> save(${Entity}DO ${entity}DO);
 
 	/**
 	 * 创建业务实体（${Entity}DO）
