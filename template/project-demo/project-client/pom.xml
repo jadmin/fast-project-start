@@ -25,7 +25,7 @@
 		<dependency>
 			<groupId>com.github.javaclub</groupId>
 			<artifactId>sword</artifactId>
-			<version>1.1.7</version>
+			<version>1.1.8-SNAPSHOT</version>
 			<exclusions>
 				<exclusion>
 					<groupId>org.springframework</groupId>

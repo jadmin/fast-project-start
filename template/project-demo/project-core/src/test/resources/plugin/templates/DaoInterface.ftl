@@ -8,7 +8,7 @@
 
 package ${daoPackage};
 
-import com.github.javaclub.sword.domain.StandardDAO;
+import ${baseDaoFullClass};
 import ${entityPackage}.${Entity}DO;
 
 /**
@@ -16,7 +16,7 @@ import ${entityPackage}.${Entity}DO;
  *
  * @version $Id: ${Entity}DAO.java ${datetime} Exp $
  */
-public interface ${Entity}DAO extends StandardDAO<${Entity}DO> {
+public interface ${Entity}DAO extends ${baseDaoClassName}<${Entity}DO> {
 	
 	
 	

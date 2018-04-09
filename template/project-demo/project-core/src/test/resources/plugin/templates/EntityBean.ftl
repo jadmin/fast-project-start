@@ -8,14 +8,14 @@
 
 package ${entityPackage};
 
-import com.github.javaclub.sword.domain.BaseDO;
+import ${baseEntityFullClass};
 
 /**
  * ${Entity}DO
  *
  * @version $Id: ${Entity}DO.java ${datetime} Exp $
  */
-public class ${Entity}DO extends BaseDO {
+public class ${Entity}DO extends ${baseEntityClassName} {
 
 	private static final long serialVersionUID = 1L;
 	

@@ -9,14 +9,14 @@
 package ${entityQueryPackage};
 
 
-import com.github.javaclub.sword.domain.DomainEntityQuery;
+import ${baseQueryFullClass};
 
 /**
  * ${Entity}Query
  *
  * @version $Id: ${Entity}Query.java ${datetime} Exp $
  */
-public class ${Entity}Query extends DomainEntityQuery {
+public class ${Entity}Query extends ${baseQueryClassName} {
 
 	private static final long serialVersionUID = 1L;
 	
