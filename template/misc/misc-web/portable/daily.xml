@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<portable-config>
+
+    
+    <config-file path="server.properties">
+		
+	</config-file>
+	
+	<config-file path="sso.properties">
+		
+	</config-file>
+	
+</portable-config>

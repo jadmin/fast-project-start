@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<portable-config>
+
+	<config-file path="server.properties">
+		<replace key="env">online</replace>
+		
+	</config-file>
+    
+</portable-config>
