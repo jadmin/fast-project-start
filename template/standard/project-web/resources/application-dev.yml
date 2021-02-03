@@ -1,0 +1,86 @@
+spring:
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  redis:
+    host: xxx.redis.rds.aliyuncs.com
+    port: 6379
+    password: SR49eKsYIvwi43tfr
+    database: 1
+    timeout: 6000
+    pool:
+        max-idle: 100
+        max-active: 100
+        max-wait: 5000
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/xxx?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=UTF8&zeroDateTimeBehavior=convertToNull&autoReconnect=true&allowMultiQueries=true&tinyInt1isBit=false&useSSL=false
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      validation-query: SELECT 1 FROM DUAL
+      initial-size: 5
+      min-idle: 5
+      max-active: 20
+      max-wait: 10000
+      min-evictable-idle-time-millis: 300000
+      time-between-eviction-runs-millis: 60000
+      test-while-idle: true
+      test-on-borrow: true
+      test-on-return: true
+      filters: stat,wall,slf4j
+      filter.stat:
+        log-slow-sql: true
+        slow-sql-millis: 1
+      web-stat-filter:
+        enabled: true
+        url-pattern: /*
+        exclusions: "*.gif,*.png,*.jpg,*.html,*.js,*.css,*.ico,/druid/*"
+      stat-view-servlet:
+        enabled: true
+        url-pattern: /druid/*
+        reset-enable: false
+        login-username: admin
+        login-password: admin
+  http:
+      multipart: 
+        maxFileSize: 50MB
+        maxRequestSize: 50MB
+
+server:
+  servlet:
+    context-path: /${appName}
+  port: 8080
+
+
+swagger:
+  enable: true
+
+crawler: 
+  xposed-encrypt-service-address: http://218.75.35.254:5597;http://218.75.35.254:5598;http://218.75.35.254:5599;
+
+
+mybatis:
+  config-location: classpath:mybatis/mybatis-config.xml
+  mapper-locations: classpath:mybatis/mapper/**/*.xml
+  configuration.map-underscore-to-camel-case: true
+
+mybatis-plus:
+  mapper-locations: classpath*:mybatis/mapper/**/*Mapper.xml
+  type-aliases-package: ${packagePrefix}.dao.entity
+
+
+wechat:
+  mp:
+    databox:
+        appId: xxx
+        appSecret: xxx
+        getAccessToken: https://api.weixin.qq.com/cgi-bin/token?appid={appid}&secret={secret}&grant_type=client_credential
+    login:
+        getSessionKeyUrl: https://api.weixin.qq.com/sns/jscode2session?appid={appid}&secret={secret}&js_code={code}&grant_type=authorization_code
+    session:
+        expiredDayNum: 30
+
+
+            

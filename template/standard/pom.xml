@@ -1,0 +1,247 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.2.1.RELEASE</version>
+		<relativePath />
+	</parent>
+
+	<groupId>${groupId}</groupId>
+	<artifactId>${appName}</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<modules>
+		<module>${appName}-api</module>
+		<module>${appName}-common</module>
+		<module>${appName}-dao</module>
+		<module>${appName}-service</module>
+		<module>${appName}-manager</module>
+		<module>${appName}-web</module>
+	</modules>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<java.version>1.8</java.version>
+		
+		<${appName}.project.version>1.0.0-SNAPSHOT</${appName}.project.version>
+		
+		<sword.version>1.6.9</sword.version>
+		<monitor.version>1.5.1</monitor.version>
+
+		<fastjson.version>1.2.58</fastjson.version>
+		<jackson-mapper-asl.version>1.9.13</jackson-mapper-asl.version>
+		<jackson-core.version>2.9.5</jackson-core.version>
+		<jackson-databind.version>2.9.5</jackson-databind.version>
+		<jackson-annotations.version>2.9.5</jackson-annotations.version>
+		<jackson-module-jaxb-annotations.version>2.9.5</jackson-module-jaxb-annotations.version>
+		<protobuf-java.version>2.5.0</protobuf-java.version>
+		<lombok.version>1.16.22</lombok.version>
+		<guava.version>23.0</guava.version>
+		<commons-codec.version>1.10</commons-codec.version>
+		<druid.version>1.1.22</druid.version>
+		<springfox-swagger2.version>2.9.2</springfox-swagger2.version>
+		<springfox-swagger-ui.version>2.9.2</springfox-swagger-ui.version>
+		<swagger-annotations.version>1.5.20</swagger-annotations.version>
+		<mapstruct.version>1.2.0.Final</mapstruct.version>
+		<druid.starter.version>1.1.22</druid.starter.version>
+
+		<mysql.connector.vserion>8.0.18</mysql.connector.vserion>
+		<mybatis.starter.vserion>2.1.1</mybatis.starter.vserion>
+		<mybatis.plus.vserion>3.3.1</mybatis.plus.vserion>
+
+		<junit.version>4.12</junit.version>
+
+	</properties>
+
+	<dependencyManagement>
+		<dependencies>
+			<!-- 应用子模块 -->
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>${appName}-common</artifactId>
+				<version>${${appName}.project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>${appName}-dao</artifactId>
+				<version>${${appName}.project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>${appName}-service</artifactId>
+				<version>${${appName}.project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>${appName}-manager</artifactId>
+				<version>${${appName}.project.version}</version>
+			</dependency>
+
+			<!--mybaties -->
+			<dependency>
+				<groupId>org.mybatis.spring.boot</groupId>
+				<artifactId>mybatis-spring-boot-starter</artifactId>
+				<version>${mybatis.starter.vserion}</version>
+			</dependency>
+			<!-- mybatis-plus -->
+			<dependency>
+				<groupId>com.baomidou</groupId>
+				<artifactId>mybatis-plus-boot-starter</artifactId>
+				<version>${mybatis.plus.vserion}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.baomidou</groupId>
+				<artifactId>mybatis-plus-generator</artifactId>
+				<version>${mybatis.plus.vserion}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.baomidou</groupId>
+				<artifactId>mybatis-plus-annotation</artifactId>
+				<version>${mybatis.plus.vserion}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.alibaba</groupId>
+				<artifactId>druid-spring-boot-starter</artifactId>
+				<version>${druid.starter.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>mysql</groupId>
+				<artifactId>mysql-connector-java</artifactId>
+				<version>${mysql.connector.vserion}</version>
+			</dependency>
+
+			<!--API管理工具 -->
+			<dependency>
+				<groupId>io.swagger</groupId>
+				<artifactId>swagger-annotations</artifactId>
+				<version>${swagger-annotations.version}</version>
+			</dependency>
+			<!-- 用于JSON API文档的生成 -->
+			<dependency>
+				<groupId>io.springfox</groupId>
+				<artifactId>springfox-swagger2</artifactId>
+				<version>${springfox-swagger2.version}</version>
+			</dependency>
+			<!--用于文档界面展示 -->
+			<dependency>
+				<groupId>io.springfox</groupId>
+				<artifactId>springfox-swagger-ui</artifactId>
+				<version>${springfox-swagger-ui.version}</version>
+			</dependency>
+
+			<!--钩子，注解的方式生成get、set等方法 -->
+			<dependency>
+				<groupId>org.projectlombok</groupId>
+				<artifactId>lombok</artifactId>
+				<version>${lombok.version}</version>
+			</dependency>
+			<!--google工具类 -->
+			<dependency>
+				<groupId>com.google.guava</groupId>
+				<artifactId>guava</artifactId>
+				<version>${guava.version}</version>
+			</dependency>
+			
+			<dependency>
+				<groupId>org.mapstruct</groupId>
+				<artifactId>mapstruct-jdk8</artifactId>
+				<version>${mapstruct.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.mapstruct</groupId>
+				<artifactId>mapstruct-processor</artifactId>
+				<version>${mapstruct.version}</version>
+			</dependency>
+			
+			<!--阿里json工具类 -->
+			<dependency>
+				<groupId>com.alibaba</groupId>
+				<artifactId>fastjson</artifactId>
+				<version>${fastjson.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.github.javaclub</groupId>
+				<artifactId>sword</artifactId>
+				<version>${sword.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.github.javaclub</groupId>
+				<artifactId>monitor</artifactId>
+				<version>${monitor.version}</version>
+			</dependency>
+			
+			<dependency>
+                <groupId>org.bouncycastle</groupId>
+                <artifactId>bcprov-jdk16</artifactId>
+                <version>1.46</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-io</groupId>
+                <artifactId>commons-io</artifactId>
+                <version>2.6</version>
+            </dependency>
+            <dependency>
+            	<groupId>commons-codec</groupId>
+            	<artifactId>commons-codec</artifactId>
+            	<version>1.13</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-lang</groupId>
+                <artifactId>commons-lang</artifactId>
+                <version>2.6</version>
+            </dependency>
+            
+			<dependency>
+				<groupId>junit</groupId>
+				<artifactId>junit</artifactId>
+				<version>${junit.version}</version>
+				<scope>test</scope>
+			</dependency>
+		</dependencies>
+
+	</dependencyManagement>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.mapstruct</groupId>
+			<artifactId>mapstruct-jdk8</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.mapstruct</groupId>
+			<artifactId>mapstruct-processor</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.github.javaclub</groupId>
+			<artifactId>sword</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>log4j-over-slf4j</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+</project>
