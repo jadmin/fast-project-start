@@ -66,21 +66,6 @@ public class GeneratorUtils {
 		File newFile = destFile;
 		String path = destFile.getAbsolutePath();
 		boolean needCreateDir = true;
-//		if(path.indexOf("/com/xxx/project") > 0 
-//				|| path.indexOf(packageDirPathPrefixWithoutAppName + "/project") > 0
-//				|| path.indexOf("/com/xxx") > 0
-//				|| path.indexOf("/project-") > 0
-//				|| path.endsWith("/java/com") || path.endsWith("/java/com/")) {
-//			path = path.replace("/project-", "/" + projectAppName + "-");
-//			path = path.replace("/com/xxx", packageDirPathPrefixWithoutAppName);
-//			path = path.replace("/com/xxx/project", packageDirPathPrefix);
-//			path = path.replace(packageDirPathPrefixWithoutAppName + "/project", packageDirPathPrefix);
-//			newFile = new File(path);
-//			if((path.endsWith("/java/com") || path.endsWith("/java/com/")) 
-//					&& !packageDirPathPrefixWithoutAppName.startsWith("/com")) {
-//				needCreateDir = false;
-//			}
-//		}
 		
 		String filename = newFile.getName();
 		if(isDirectory) {
