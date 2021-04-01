@@ -27,7 +27,7 @@ public class ServerHeartBeatCheckController implements ApplicationListener<Conte
 	public void onApplicationEvent(ContextRefreshedEvent event) {
 		ApplicationContext ac = event.getApplicationContext();
 		if(null != ac && null == ac.getParent()) {
-			log.info("====== DataboxWebApplication start successfully ======");
+			log.info("====== WebApplication started successfully ======");
 		}
 	}
 	
