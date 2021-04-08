@@ -44,7 +44,7 @@ public class StandardProjectGenerator {
 		String destRootPath = path + "/work/" + paramsMap.get(keyFormat(APP_NAME));
 		
 		copyRootFiles(new String[] {
-			"pom.xml", "package-dev.sh", "bootstart-local.sh"
+			"pom.xml", "package-dev.sh", "bootstart-local.sh", ".gitignore"
 		}, tplRootPath, destRootPath);
 		
 		String[] modules = new String[] {

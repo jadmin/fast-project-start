@@ -30,8 +30,8 @@
 		
 		<${appName}.project.version>1.0.0-SNAPSHOT</${appName}.project.version>
 		
-		<sword.version>1.7.1</sword.version>
-		<monitor.version>1.5.1</monitor.version>
+		<sword.version>1.7.2</sword.version>
+		<monitor.version>1.5.3</monitor.version>
 
 		<fastjson.version>1.2.58</fastjson.version>
 		<jackson-mapper-asl.version>1.9.13</jackson-mapper-asl.version>

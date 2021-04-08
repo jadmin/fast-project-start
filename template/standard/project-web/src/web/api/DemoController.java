@@ -15,10 +15,11 @@ import lombok.extern.slf4j.Slf4j;
 @RequestMapping("/demo")
 @Api(tags = "示例api")
 public class DemoController {
-
+    
     @GetMapping(value = "/info")
     @ApiOperation(value = "示例信息")
-    public HttpResult<String> info() {
+    public HttpResult<String> info(String num) {
+    	Integer.parseInt(num);
         return HttpResult.success("Hello, World!");
     }
     

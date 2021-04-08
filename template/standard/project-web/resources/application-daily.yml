@@ -1,3 +1,5 @@
+application:
+  env: DAILY
 spring:
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
@@ -66,6 +68,10 @@ mybatis-plus:
   mapper-locations: classpath*:mybatis/mapper/**/*Mapper.xml
   type-aliases-package: ${packagePrefix}.dao.entity
 
+dingtalk:
+  aks:
+    master: 62a22374d5a40ef992db71bfd001217b633c1f0ed1c81dee9956eee48a4045c9,a1dbf983a2939754c061c05136a3aa4169336fa41bbb920a5fc6551d69741689,0b21ce0e2893124033a8e2527915a6b5023e37c07b054fe1e4243ce59245b426
+    slave: d3f67826abb4eb8e6451c54ebaf5151ea838a227525048c71b57c1ac54bae5b6,3d0ab28a8e4619ec7a72e60843ffd3972229ceca7a14bf61308756c5e1a35da7,142ae410b5b6c7459d29ccd15ccc7e4667f8247f458c18984a4f2472b06fd275
 
 wechat:
   mp:
