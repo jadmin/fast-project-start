@@ -20,7 +20,6 @@ import com.github.javaclub.sword.core.Strings;
 import com.github.javaclub.sword.util.WebUtil;
 import com.github.javaclub.sword.web.HttpResult;
 import com.google.common.collect.Maps;
-import com.xsoft.xyz.common.AppConstants.OpenApi;
 
 import ${packagePrefix}.common.AppConstants.OpenApi;
 import ${packagePrefix}.common.annotation.OpenApiAuth;
