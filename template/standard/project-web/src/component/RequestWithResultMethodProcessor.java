@@ -1,7 +1,7 @@
 /*
- * @(#)RequestWithResultMethodProcessor.java	2020-12-29
+ * @(#)RequestWithResultMethodProcessor.java	${date}
  *
- * Copyright (c) 2020. All Rights Reserved.
+ * Copyright (c) ${year} - 2099. All Rights Reserved.
  *
  */
 
@@ -36,7 +36,7 @@ import lombok.extern.slf4j.Slf4j;
  * RequestWithResultMethodProcessor
  *
  * @author <a href="mailto:gerald.chen.hz@gmail.com">Gerald Chen</a>
- * @version $Id: RequestWithResultMethodProcessor.java 2020-12-29 17:46:50 Exp $
+ * @version $Id: RequestWithResultMethodProcessor.java ${currentTime} Exp $
  */
 @Component
 @Slf4j

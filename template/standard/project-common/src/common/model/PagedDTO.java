@@ -1,7 +1,7 @@
 /*
- * @(#)PagedDTO.java	2020-12-29
+ * @(#)PagedDTO.java	${date}
  *
- * Copyright (c) 2020. All Rights Reserved.
+ * Copyright (c) ${year} - 2099. All Rights Reserved.
  *
  */
 

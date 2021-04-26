@@ -1,7 +1,7 @@
 /*
- * @(#)RedisNotifyHandlerFactory.java	2018年12月11日
+ * @(#)RedisNotifyHandlerFactory.java	${date}
  *
- * Copyright (c) 2018. All Rights Reserved.
+ * Copyright (c) ${year} - 2099. All Rights Reserved.
  *
  */
 
@@ -19,7 +19,7 @@ import ${packagePrefix}.support.BeanFactory;
  * RedisNotifyHandlerFactory
  *
  * @author <a href="mailto:gerald.chen.hz@gmail.com">Gerald Chen</a>
- * @version $Id: RedisNotifyHandlerFactory.java 2018年12月11日 14:47:07 Exp $
+ * @version $Id: RedisNotifyHandlerFactory.java ${datetime} Exp $
  */
 public class RedisNotifyHandlerFactory {
 

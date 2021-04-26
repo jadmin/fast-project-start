@@ -1,7 +1,7 @@
 /*
- * @(#)WebApplication.java	2019年8月1日
+ * @(#)WebApplication.java	${date}
  *
- * Copyright (c) 2019. All Rights Reserved.
+ * Copyright (c) ${year} - 2099. All Rights Reserved.
  *
  */
 
@@ -23,7 +23,7 @@ import lombok.extern.slf4j.Slf4j;
  * WebApplication
  *
  * @author <a href="mailto:gerald.chen.hz@gmail.com">Gerald Chen</a>
- * @version $Id: WebApplication.java 2019年8月1日 15:21:32 Exp $
+ * @version $Id: WebApplication.java ${currentTime} Exp $
  */
 @SpringBootApplication(exclude = {
 })

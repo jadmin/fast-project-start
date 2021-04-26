@@ -1,7 +1,7 @@
 /*
- * @(#)AppConstants.java	2020-12-30
+ * @(#)AppConstants.java	${date}
  *
- * Copyright (c) 2020. All Rights Reserved.
+ * Copyright (c) ${year} - 2099. All Rights Reserved.
  *
  */
 
@@ -16,7 +16,7 @@ import com.github.javaclub.sword.core.Strings;
  * AppConstants
  *
  * @author <a href="mailto:gerald.chen.hz@gmail.com">Gerald Chen</a>
- * @version $Id: AppConstants.java 2020-12-30 11:27:07 Exp $
+ * @version $Id: AppConstants.java ${datetime} Exp $
  */
 public interface AppConstants {
 	

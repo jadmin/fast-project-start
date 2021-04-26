@@ -1,7 +1,7 @@
 /*
- * @(#)OpenApiAspect.java	2021-4-1
+ * @(#)OpenApiAspect.java	${date}
  *
- * Copyright (c) 2021. All Rights Reserved.
+ * Copyright (c) ${year} - 2099. All Rights Reserved.
  *
  */
 
@@ -33,7 +33,7 @@ import ${packagePrefix}.common.AppConstants.OpenApi;
  * OpenApiAspect
  *
  * @author <a href="mailto:gerald.chen.hz@gmail.com">Gerald Chen</a>
- * @version $Id: OpenApiAspect.java 2021-4-1 16:01:32 Exp $
+ * @version $Id: OpenApiAspect.java ${currentTime} Exp $
  */
 @Aspect
 @Component

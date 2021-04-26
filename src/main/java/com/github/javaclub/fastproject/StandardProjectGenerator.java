@@ -8,12 +8,14 @@
 package com.github.javaclub.fastproject;
 
 import java.io.File;
+import java.util.Date;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 
 import com.github.javaclub.sword.core.Strings;
+import com.github.javaclub.sword.util.DateUtil;
 import com.github.javaclub.sword.util.FileUtil;
 import com.github.javaclub.sword.util.PropUtil;
 
@@ -36,6 +38,10 @@ public class StandardProjectGenerator {
 	static {
 		Properties server = PropUtil.getProperties("server.properties", StandardProjectGenerator.class);
 		paramsMap = toMap(server);
+		
+		paramsMap.put("${date}", DateUtil.currentDate());
+		paramsMap.put("${year}", DateUtil.get(new Date(), DateUtil.YEAR) + "");
+		paramsMap.put("${currentTime}", DateUtil.currentTimestamp());
 	}
 	
 	public static void main(String[] args) throws Exception {

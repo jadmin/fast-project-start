@@ -1,7 +1,7 @@
 /*
- * @(#)RedisNotifyMessageHandler.java	2020-10-11
+ * @(#)RedisNotifyMessageHandler.java	${date}
  *
- * Copyright (c) 2020. All Rights Reserved.
+ * Copyright (c) ${year} - 2099. All Rights Reserved.
  *
  */
 
@@ -11,7 +11,7 @@ package ${packagePrefix}.config.redis.handler;
  * RedisNotifyMessageHandler
  *
  * @author <a href="mailto:gerald.chen.hz@gmail.com">Gerald Chen</a>
- * @version $Id: RedisNotifyMessageHandler.java 2020-10-11 17:02:39 Exp $
+ * @version $Id: RedisNotifyMessageHandler.java ${datetime} Exp $
  */
 public interface RedisNotifyMessageHandler {
 

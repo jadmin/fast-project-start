@@ -1,7 +1,7 @@
 /*
- * @(#)SwaggerConfig.java	2020-7-30
+ * @(#)SwaggerConfig.java	${date}
  *
- * Copyright (c) 2020. All Rights Reserved.
+ * Copyright (c) ${year} - 2099. All Rights Reserved.
  *
  */
 
@@ -28,7 +28,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  * SwaggerConfig
  *
  * @author <a href="mailto:gerald.chen.hz@gmail.com">Gerald Chen</a>
- * @version $Id: SwaggerConfig.java 2020-7-30 13:36:12 Exp $
+ * @version $Id: SwaggerConfig.java ${currentTime} Exp $
  */
 @Configuration
 @EnableSwagger2

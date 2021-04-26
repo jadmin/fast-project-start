@@ -1,7 +1,7 @@
 /*
- * @(#)RedisConfig.java	2020-7-31
+ * @(#)RedisConfig.java	${date}
  *
- * Copyright (c) 2020. All Rights Reserved.
+ * Copyright (c) ${year} - 2099. All Rights Reserved.
  *
  */
 
@@ -39,7 +39,7 @@ import lombok.extern.slf4j.Slf4j;
  * RedisConfig
  *
  * @author <a href="mailto:gerald.chen.hz@gmail.com">Gerald Chen</a>
- * @version $Id: RedisConfig.java 2020-7-31 15:27:20 Exp $
+ * @version $Id: RedisConfig.java ${datetime} Exp $
  */
 @Configuration
 @EnableCaching

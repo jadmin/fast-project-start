@@ -1,7 +1,7 @@
 /*
- * @(#)LoginTokenModel.java	2020-9-4
+ * @(#)LoginTokenModel.java	${date}
  *
- * Copyright (c) 2020. All Rights Reserved.
+ * Copyright (c) ${year} - 2099. All Rights Reserved.
  *
  */
 
@@ -18,7 +18,7 @@ import lombok.Data;
  * LoginTokenModel
  *
  * @author <a href="mailto:gerald.chen.hz@gmail.com">Gerald Chen</a>
- * @version $Id: LoginTokenModel.java 2020-9-4 23:33:20 Exp $
+ * @version $Id: LoginTokenModel.java ${currentTime} Exp $
  */
 @Data
 public class LoginTokenModel implements Serializable {

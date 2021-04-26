@@ -20,7 +20,7 @@ import lombok.extern.slf4j.Slf4j;
  * 小程序登录鉴权拦截
  *
  * @author <a href="mailto:gerald.chen.hz@gmail.com">Gerald Chen</a>
- * @version $Id: WxLoginInterceptor.java 2020-8-27 14:42:59 Exp $
+ * @version $Id: WxLoginInterceptor.java ${currentTime} Exp $
  */
 @Component
 @Slf4j

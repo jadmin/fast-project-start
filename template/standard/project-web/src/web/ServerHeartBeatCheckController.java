@@ -16,7 +16,7 @@ import springfox.documentation.annotations.ApiIgnore;
  * ServerHeartBeatCheckController Web应用启动心跳自检
  *
  * @author <a href="mailto:gerald.chen.hz@gmail.com">Gerald Chen</a>
- * @version $Id: ServerHeartBeatCheckController.java 2017年5月17日 11:27:50 Exp $
+ * @version $Id: ServerHeartBeatCheckController.java ${currentTime} Exp $
  */
 @ApiIgnore
 @Controller

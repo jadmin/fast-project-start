@@ -1,7 +1,7 @@
 /*
- * @(#)TraceIdUtil.java	2021-2-3
+ * @(#)TraceIdUtil.java	${date}
  *
- * Copyright (c) 2021. All Rights Reserved.
+ * Copyright (c) ${year} - 2099. All Rights Reserved.
  *
  */
 
@@ -16,7 +16,7 @@ import org.slf4j.MDC;
  * TraceIdUtil
  *
  * @author <a href="mailto:gerald.chen.hz@gmail.com">Gerald Chen</a>
- * @version $Id: TraceIdUtil.java 2021-2-3 11:12:44 Exp $
+ * @version $Id: TraceIdUtil.java ${currentTime} Exp $
  */
 public class TraceIdUtil {
 	

@@ -1,7 +1,7 @@
 /*
- * @(#)ControllerExceptionHandler.java	2020-12-30
+ * @(#)ControllerExceptionHandler.java	${date}
  *
- * Copyright (c) 2020. All Rights Reserved.
+ * Copyright (c) ${year} - 2099. All Rights Reserved.
  *
  */
 

@@ -1,7 +1,7 @@
 /*
- * @(#)BaseDTO.java	2021-1-13
+ * @(#)BaseDTO.java	${date}
  *
- * Copyright (c) 2021. All Rights Reserved.
+ * Copyright (c) ${year} - 2099. All Rights Reserved.
  *
  */
 
@@ -21,7 +21,7 @@ import lombok.Data;
  * BaseDTO
  *
  * @author <a href="mailto:gerald.chen.hz@gmail.com">Gerald Chen</a>
- * @version $Id: BaseDTO.java 2021-1-13 17:14:14 Exp $
+ * @version $Id: BaseDTO.java ${currentTime} Exp $
  */
 @Data
 @ApiModel("基础字段")

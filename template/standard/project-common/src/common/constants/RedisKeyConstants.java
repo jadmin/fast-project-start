@@ -1,7 +1,7 @@
 /*
- * @(#)RedisKeyConstants.java	2021-2-3
+ * @(#)RedisKeyConstants.java	${date}
  *
- * Copyright (c) 2021. All Rights Reserved.
+ * Copyright (c) ${year} - 2099. All Rights Reserved.
  *
  */
 
@@ -11,7 +11,7 @@ package ${packagePrefix}.common.constants;
  * RedisKeyConstants
  *
  * @author <a href="mailto:gerald.chen.hz@gmail.com">Gerald Chen</a>
- * @version $Id: RedisKeyConstants.java 2021-2-3 10:29:46 Exp $
+ * @version $Id: RedisKeyConstants.java ${currentTime} Exp $
  */
 public class RedisKeyConstants {
 

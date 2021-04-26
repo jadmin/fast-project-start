@@ -1,7 +1,7 @@
 /*
- * @(#)OpenApiController.java	2021-3-31
+ * @(#)OpenApiController.java	${date}
  *
- * Copyright (c) 2021. All Rights Reserved.
+ * Copyright (c) ${year} - 2099. All Rights Reserved.
  *
  */
 
@@ -33,7 +33,7 @@ import lombok.extern.slf4j.Slf4j;
  * OpenApiController
  *
  * @author <a href="mailto:gerald.chen.hz@gmail.com">Gerald Chen</a>
- * @version $Id: OpenApiController.java 2021-3-31 17:20:34 Exp $
+ * @version $Id: OpenApiController.java ${currentTime} Exp $
  */
 @Slf4j
 @RestController

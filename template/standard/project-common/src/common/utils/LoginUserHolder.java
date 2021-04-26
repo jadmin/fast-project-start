@@ -1,7 +1,7 @@
 /*
- * @(#)LoginUserHolder.java	2020-8-20
+ * @(#)LoginUserHolder.java	${date}
  *
- * Copyright (c) 2020. All Rights Reserved.
+ * Copyright (c) ${year} - 2099. All Rights Reserved.
  *
  */
 
@@ -11,7 +11,7 @@ package ${packagePrefix}.common.utils;
  * LoginUserHolder
  *
  * @author <a href="mailto:gerald.chen.hz@gmail.com">Gerald Chen</a>
- * @version $Id: LoginUserHolder.java 2020-8-20 14:24:05 Exp $
+ * @version $Id: LoginUserHolder.java ${currentTime} Exp $
  */
 public class LoginUserHolder {
 	

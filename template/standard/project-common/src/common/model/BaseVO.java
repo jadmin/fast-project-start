@@ -1,7 +1,7 @@
 /*
- * @(#)BaseDTO.java	2021-1-13
+ * @(#)BaseDTO.java	${date}
  *
- * Copyright (c) 2021. All Rights Reserved.
+ * Copyright (c) ${year} - 2099. All Rights Reserved.
  *
  */
 

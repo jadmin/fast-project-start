@@ -1,7 +1,7 @@
 /*
- * @(#)ValidateUtils.java	2020-8-18
+ * @(#)ValidateUtils.java	${date}
  *
- * Copyright (c) 2020. All Rights Reserved.
+ * Copyright (c) ${year} - 2099. All Rights Reserved.
  *
  */
 
@@ -19,7 +19,7 @@ import ${packagePrefix}.common.enums.ErrorEnum;
  * ValidateUtils
  *
  * @author <a href="mailto:gerald.chen.hz@gmail.com">Gerald Chen</a>
- * @version $Id: ValidateUtils.java 2020-8-18 15:59:57 Exp $
+ * @version $Id: ValidateUtils.java ${currentTime} Exp $
  */
 public class ValidateUtils {
 

@@ -1,7 +1,7 @@
 /*
- * @(#)RedisMessageReceiveListener.java	2019年6月25日
+ * @(#)RedisMessageReceiveListener.java	${date}
  *
- * Copyright (c) 2019. All Rights Reserved.
+ * Copyright (c) ${year} - 2099. All Rights Reserved.
  *
  */
 
@@ -22,7 +22,7 @@ import lombok.extern.slf4j.Slf4j;
  * RedisMessageReceiveListener
  *
  * @author <a href="mailto:gerald.chen.hz@gmail.com">Gerald Chen</a>
- * @version $Id: RedisMessageReceiveListener.java 2019年6月25日 11:26:40 Exp $
+ * @version $Id: RedisMessageReceiveListener.java ${datetime} Exp $
  */
 @Component
 @Slf4j

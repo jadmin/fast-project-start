@@ -1,7 +1,7 @@
 /*
- * @(#)BaseController.java	2017年5月19日
+ * @(#)BaseController.java	${date}
  *
- * Copyright (c) 2017. All Rights Reserved.
+ * Copyright (c) ${year} - 2099. All Rights Reserved.
  *
  */
 
@@ -18,7 +18,7 @@ import lombok.extern.slf4j.Slf4j;
  * BaseController
  *
  * @author <a href="mailto:gerald.chen.hz@gmail.com">Gerald Chen</a>
- * @version $Id: BaseController.java 2017年5月19日 11:47:05 Exp $
+ * @version $Id: BaseController.java ${currentTime} Exp $
  */
 @Slf4j
 public class ApiBaseController extends HttpController {

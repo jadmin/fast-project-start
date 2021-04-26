@@ -1,7 +1,7 @@
 /*
- * @(#)OpenApiAuth.java	2020-04-01
+ * @(#)OpenApiAuth.java	${date}
  *
- * Copyright (c) 2020. All Rights Reserved.
+ * Copyright (c) ${year} - 2099. All Rights Reserved.
  *
  */
 

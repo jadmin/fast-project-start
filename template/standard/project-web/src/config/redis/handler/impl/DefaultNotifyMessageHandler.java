@@ -1,7 +1,7 @@
 /*
- * @(#)DefaultNotifyMessageHandler.java	2020-10-11
+ * @(#)DefaultNotifyMessageHandler.java	${date}
  *
- * Copyright (c) 2020. All Rights Reserved.
+ * Copyright (c) ${year} - 2099. All Rights Reserved.
  *
  */
 
@@ -17,7 +17,7 @@ import lombok.extern.slf4j.Slf4j;
  * DefaultNotifyMessageHandler
  *
  * @author <a href="mailto:gerald.chen.hz@gmail.com">Gerald Chen</a>
- * @version $Id: DefaultNotifyMessageHandler.java 2020-10-11 17:15:19 Exp $
+ * @version $Id: DefaultNotifyMessageHandler.java ${datetime} Exp $
  */
 @Component
 @Slf4j
