@@ -9,10 +9,13 @@ package ${packagePrefix};
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.scheduling.annotation.EnableScheduling;
+
+import com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceAutoConfigure;
 
 import ${packagePrefix}.support.BeanFactory;
 
@@ -26,6 +29,8 @@ import lombok.extern.slf4j.Slf4j;
  * @version $Id: WebApplication.java ${currentTime} Exp $
  */
 @SpringBootApplication(exclude = {
+	DataSourceAutoConfiguration.class,
+	DruidDataSourceAutoConfigure.class
 })
 @EnableAspectJAutoProxy(proxyTargetClass = true)
 @ComponentScan(basePackages = { "${groupId}" })
