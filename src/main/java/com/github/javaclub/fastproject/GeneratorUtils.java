@@ -31,7 +31,7 @@ public class GeneratorUtils {
 		String content = Strings.parseTemplateText(text, paramMap);
 		FileUtil.writeText(dest.getAbsolutePath(), content, "UTF-8");
 		
-		Systems.out("OK \t dest={}", dest.getAbsolutePath());
+		Systems.out("OK \t dest=" + dest.getAbsolutePath());
 	}
 
 	public static void copyDir(File src, File dest, Map<String, String> paramMap) throws IOException {

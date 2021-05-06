@@ -89,6 +89,25 @@ public class StandardProjectGenerator {
 			GeneratorUtils.copyDir(tplResourcesDir, new File(resources), paramsMap);
 		}
 		
+		// 测试目录
+		String testSrcPackage = tplRootPath + "/project-" + moduleName + "/test-src";
+		String testResources = tplRootPath + "/project-" + moduleName + "/test-resources";
+		File testSrcPackageDir = new File(testSrcPackage);
+		File testResourcesDir = new File(testResources);
+		
+		String testPackageDest = modulePath + "/src/test/java/" + paramsMap.get(keyFormat(PACKAGE_PREFIX)).replace(".", "/");
+		String testResourcesDest = modulePath + "/src/test/resources";
+		
+		// test/src
+		if(testSrcPackageDir.exists() && testSrcPackageDir.isDirectory()) {
+			GeneratorUtils.copyDir(testSrcPackageDir, new File(testPackageDest), paramsMap);
+		}
+		
+		// test/resources
+		if(testResourcesDir.exists() && testResourcesDir.isDirectory()) {
+			GeneratorUtils.copyDir(testResourcesDir, new File(testResourcesDest), paramsMap);
+		}
+		
 	}
 	
 	static void copyRootFiles(String[] filenames, String tplRootPath, String destRootPath) throws Exception {

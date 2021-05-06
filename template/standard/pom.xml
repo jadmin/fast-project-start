@@ -32,6 +32,7 @@
 		
 		<sword.version>1.7.2</sword.version>
 		<monitor.version>1.5.3</monitor.version>
+		<jorm.version>1.1.1</jorm.version>
 
 		<fastjson.version>1.2.58</fastjson.version>
 		<jackson-mapper-asl.version>1.9.13</jackson-mapper-asl.version>
@@ -175,6 +176,12 @@
 				<groupId>com.github.javaclub</groupId>
 				<artifactId>monitor</artifactId>
 				<version>${monitor.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.github.javaclub</groupId>
+				<artifactId>jorm</artifactId>
+				<version>${jorm.version}</version>
+				<scope>test</scope>
 			</dependency>
 			
 			<dependency>

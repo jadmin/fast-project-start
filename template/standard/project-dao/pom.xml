@@ -54,6 +54,11 @@
 			<groupId>com.baomidou</groupId>
 			<artifactId>mybatis-plus-annotation</artifactId>
 		</dependency>
+		
+		<dependency>
+			<groupId>com.github.javaclub</groupId>
+			<artifactId>jorm</artifactId>
+		</dependency>
 
     </dependencies>
 
