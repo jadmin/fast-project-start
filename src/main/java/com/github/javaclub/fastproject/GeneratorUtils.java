@@ -8,6 +8,8 @@
 package com.github.javaclub.fastproject;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Map;
 
@@ -24,12 +26,20 @@ import com.github.javaclub.sword.util.FileUtil;
 public class GeneratorUtils {
 	
 	public static void copyFile(File src, File dest, Map<String, String> paramMap) throws IOException {
-		String text = FileUtil.readAsString(src, "UTF-8");
-		if(!dest.exists()) {
-			FileUtil.createFile(dest);
+		String lowerFilename = src.getName().toLowerCase();
+		if (Strings.endsWith(lowerFilename, new String[] { 
+				".woff", ".woff2", ".eot", ".ttf", ".svg",
+				".jpg", ".jpeg", ".png", ".gif" })) {
+			FileUtil.copyFile(src, dest);
+		} else {
+			String text = FileUtil.readAsString(src, "UTF-8");
+			if(!dest.exists()) {
+				FileUtil.createFile(dest);
+			}
+			String content = Strings.parseTemplateText(text, paramMap);
+			FileUtil.writeText(dest.getAbsolutePath(), content, "UTF-8");
 		}
-		String content = Strings.parseTemplateText(text, paramMap);
-		FileUtil.writeText(dest.getAbsolutePath(), content, "UTF-8");
+		
 		
 		Systems.out("OK \t dest=" + dest.getAbsolutePath());
 	}

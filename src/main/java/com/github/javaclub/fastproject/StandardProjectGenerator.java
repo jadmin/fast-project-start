@@ -27,7 +27,7 @@ import com.github.javaclub.sword.util.PropUtil;
  */
 public class StandardProjectGenerator {
 	
-	static final String APP_STANDARD = "standard";
+	static final String APP_STANDARD = "admin-console";
 	
 	static final String GROUP_ID = "groupId";
 	static final String APP_NAME = "appName";
@@ -50,7 +50,8 @@ public class StandardProjectGenerator {
 		String destRootPath = path + "/work/" + paramsMap.get(keyFormat(APP_NAME));
 		
 		copyRootFiles(new String[] {
-			"pom.xml", "package-dev.sh", "bootstart-local.sh", ".gitignore"
+			"pom.xml", ".gitignore", 
+			"package-dev.sh", "bootstart-local.sh", "bootone.sh"
 		}, tplRootPath, destRootPath);
 		
 		String[] modules = new String[] {
