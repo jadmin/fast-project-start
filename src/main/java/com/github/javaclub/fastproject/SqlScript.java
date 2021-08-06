@@ -35,7 +35,7 @@ public class SqlScript {
 		
 		// 读取加密sql文件内容
 		String content = FileUtil.readAsString(new File(tplRootPath + "/dbs.sql"), "UTF-8");
-		String sqlText = MiscCryptor.decrypt(content, pwd);
+		String sqlText = MiscCryptor.decrypt(content.trim(), pwd);
 		
 		// 解密出可执行的sql文件 => /template/sql.sql
 		String path = tplRootPath + "/sql.sql"; 
