@@ -16,7 +16,7 @@ import com.github.javaclub.sword.core.Strings;
  * AppConstants
  *
  * @author <a href="mailto:gerald.chen.hz@gmail.com">Gerald Chen</a>
- * @version $Id: AppConstants.java ${datetime} Exp $
+ * @version $Id: AppConstants.java ${currentTime} Exp $
  */
 public interface AppConstants {
 	
@@ -27,7 +27,7 @@ public interface AppConstants {
 		public static final String APP_REDIS_NS = "${appName}";
 		
 		public static final String formatKey(String format, Object... params) {
-            String key = String.format(format, params);
+            String key = Strings.format(format, params);
             return Strings.concat(APP_REDIS_NS, SEP_COLON, key);
         }
 	}

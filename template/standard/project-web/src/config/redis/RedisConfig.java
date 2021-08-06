@@ -39,7 +39,7 @@ import lombok.extern.slf4j.Slf4j;
  * RedisConfig
  *
  * @author <a href="mailto:gerald.chen.hz@gmail.com">Gerald Chen</a>
- * @version $Id: RedisConfig.java ${datetime} Exp $
+ * @version $Id: RedisConfig.java ${currentTime} Exp $
  */
 @Configuration
 @EnableCaching

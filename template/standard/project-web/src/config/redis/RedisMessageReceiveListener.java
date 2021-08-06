@@ -22,7 +22,7 @@ import lombok.extern.slf4j.Slf4j;
  * RedisMessageReceiveListener
  *
  * @author <a href="mailto:gerald.chen.hz@gmail.com">Gerald Chen</a>
- * @version $Id: RedisMessageReceiveListener.java ${datetime} Exp $
+ * @version $Id: RedisMessageReceiveListener.java ${currentTime} Exp $
  */
 @Component
 @Slf4j

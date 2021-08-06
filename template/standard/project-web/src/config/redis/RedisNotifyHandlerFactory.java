@@ -19,7 +19,7 @@ import ${packagePrefix}.support.BeanFactory;
  * RedisNotifyHandlerFactory
  *
  * @author <a href="mailto:gerald.chen.hz@gmail.com">Gerald Chen</a>
- * @version $Id: RedisNotifyHandlerFactory.java ${datetime} Exp $
+ * @version $Id: RedisNotifyHandlerFactory.java ${currentTime} Exp $
  */
 public class RedisNotifyHandlerFactory {
 
