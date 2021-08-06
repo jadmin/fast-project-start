@@ -14,6 +14,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 
+import com.github.javaclub.fastproject.utils.GeneratorUtils;
 import com.github.javaclub.sword.core.Strings;
 import com.github.javaclub.sword.util.DateUtil;
 import com.github.javaclub.sword.util.FileUtil;

@@ -18,7 +18,7 @@
 		<dependency>
 			<groupId>com.github.javaclub</groupId>
 			<artifactId>sword</artifactId>
-			<version>1.7.6_14</version>
+			<version>1.7.6_15</version>
 		</dependency>
 
 		<!-- log start -->
