@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- Automatic generated on ${currentTime} by CrudCodeGenerator wirtten by Gerald Chen -->
+
+<mapper namespace="${packagePrefix}.dao.BasicComponentDAO">
+
+	<resultMap type="${packagePrefix}.dataobject.BasicComponentDO" id="basicComponentMap">
+        <result property="id" column="id" />
+        <result property="widgetName" column="widget_name" />
+        <result property="widgetType" column="widget_type" />
+        <result property="widgetHtml" column="widget_html" />
+        <result property="widgetFunction" column="widget_function" />
+        <result property="widgetAjax" column="widget_ajax" />
+        <result property="status" column="status" />
+        <result property="gmtCreate" column="gmt_create" />
+        <result property="gmtModified" column="gmt_modified" />
+        <result property="creator" column="creator" />
+        <result property="modifier" column="modifier" />
+
+    </resultMap>
+    
+    <sql id="AllColumns">
+		id,
+		widget_name,
+		widget_type, 
+		widget_html,
+		widget_function,
+		widget_ajax,
+		status,
+		gmt_create,
+		gmt_modified,
+		creator,
+		modifier
+    </sql>
+    
+    <sql id="InfoManageSet">
+        <set>
+			<if test="widgetName != null">widget_name=#{widgetName},</if>
+			<if test="widgetType != null">widget_type=#{widgetType},</if>
+			<if test="widgetHtml != null">widget_html=#{widgetHtml},</if>
+			<if test="widgetFunction != null">widget_function=#{widgetFunction},</if>
+			<if test="widgetAjax != null">widget_ajax=#{widgetAjax},</if>
+			<if test="status != null">status=#{status},</if>
+			<if test="gmtModified != null">gmt_modified=#{gmtModified},</if>
+			<if test="creator != null">creator=#{creator},</if>
+			<if test="modifier != null">modifier=#{modifier},</if>
+
+        </set>
+    </sql>
+    
+    <sql id="Where_QueryCondition">
+        <where>
+			<if test="id != null">
+			    id = #{id} 
+			</if>
+			<if test="widgetType != null">
+			    AND widget_type = #{widgetType} 
+     		</if>
+			<if test="status != null">
+			    AND status = #{status} 
+     		</if>
+     		<if test="creator != null">
+			    AND creator = #{creator} 
+     		</if>
+     		<if test="widgetNameLike != null">
+            	AND widget_name LIKE concat('%', #{widgetNameLike}, '%') 
+     		</if>
+	        
+	        
+	        <if test="minId != null">
+	            <![CDATA[
+	            AND id >= #{minId} 
+	        	]]>
+	        </if>
+	        <if test="maxId != null">
+	            <![CDATA[
+	            AND id <= #{maxId} 
+	        	]]>
+	        </if>
+	        <if test="ids != null and ids.size() > 0">
+	            AND id IN
+	            <foreach item="id" index="index" collection="ids"
+	                     open="(" separator="," close=")">
+	                #{id}
+	            </foreach>
+	        </if>
+	        <if test="gmtCreateRange != null and gmtCreateRange.start != null">
+	            <![CDATA[
+	            AND gmt_create >= #{gmtCreateRange.start} 
+	        	]]>
+	        </if>
+	        <if test="gmtCreateRange != null and gmtCreateRange.end != null">
+	            <![CDATA[
+	            AND gmt_create <= #{gmtCreateRange.end} 
+	        	]]>
+	        </if>
+	        <if test="gmtModifyRange != null and gmtModifyRange.start != null">
+	            <![CDATA[
+	            AND gmt_modify >= #{gmtModifyRange.start} 
+	        	]]>
+	        </if>
+	        <if test="gmtModifyRange != null and gmtModifyRange.end != null">
+	            <![CDATA[
+	            AND gmt_modify <= #{gmtModifyRange.end} 
+	        	]]>
+	        </if>
+        </where>
+    </sql>
+    
+    
+    <sql id="OrderBy">
+        <choose>
+	        <when test="orderByList != null and orderByList.size() > 0">
+	            <foreach item="orderby" index="index" collection="orderByList" open="" separator="," close="">
+                	${orderby.key} ${orderby.value}
+            	</foreach>
+	        </when>
+	        <otherwise>
+	            gmt_create DESC 
+	        </otherwise>
+        </choose>
+    </sql>
+    
+    <select id="getById" resultMap="basicComponentMap">
+    	SELECT  
+    		<include refid="AllColumns" /> 
+    	FROM component_basic WHERE id = #{id} LIMIT 1
+    </select>
+    
+    <select id="queryList" parameterType="${packagePrefix}.query.BasicComponentQuery" resultMap="basicComponentMap">
+    	SELECT  
+    		<include refid="AllColumns" />
+    	FROM component_basic  
+    	<if test="forceIndex != null">
+		FORCE INDEX(${forceIndex}) 
+    	</if>
+    	<include refid="Where_QueryCondition" />
+    	ORDER BY 
+    		<include refid="OrderBy" /> 
+        LIMIT #{start}, #{limit}
+    </select>
+    
+    <select id="count" parameterType="${packagePrefix}.query.BasicComponentQuery" resultType="java.lang.Integer">
+    	SELECT count(id) 
+    	FROM component_basic  
+    	<if test="forceIndex != null">
+		FORCE INDEX(${forceIndex}) 
+    	</if>
+    	<include refid="Where_QueryCondition" />
+    </select>
+
+    <insert id="insert" parameterType="${packagePrefix}.dataobject.BasicComponentDO" useGeneratedKeys="true" keyProperty="id">
+        INSERT component_basic 
+        <include refid="InfoManageSet" />
+    </insert>
+    
+    <insert id="insertBatch" parameterType="java.util.List" useGeneratedKeys="true" keyProperty="id"> 
+	    INSERT INTO component_basic(widget_name,widget_type,widget_html,widget_function,widget_ajax,status,gmt_create,gmt_modified,creator,modifier)  
+	    VALUES 
+	    <foreach collection="list" item="obj" index="index" separator=",">  
+	       (#{obj.widgetName},#{obj.widgetType},#{obj.widgetHtml},#{obj.widgetFunction},#{obj.widgetAjax},#{obj.status},now(),#{obj.gmtModified},#{obj.creator},#{obj.modifier})  
+	    </foreach>  
+    </insert>
+
+    <update id="update" parameterType="${packagePrefix}.dataobject.BasicComponentDO">
+        UPDATE component_basic 
+        <include refid="InfoManageSet" />
+        WHERE id = #{id} 
+        <if test="version != null">
+            AND version=#{version}
+        </if>
+    </update>
+    
+    <update id="changeStatus" parameterType="${packagePrefix}.dataobject.BasicComponentDO">
+        UPDATE component_basic SET status = #{status} 
+        WHERE id = #{id} 
+    </update>
+    
+    <delete id="deleteById">
+    	DELETE FROM component_basic WHERE id = #{id}
+    </delete>
+    
+
+</mapper>

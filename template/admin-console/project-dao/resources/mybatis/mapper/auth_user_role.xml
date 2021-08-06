@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- Automatic generated on ${currentTime} by CrudCodeGenerator wirtten by Gerald Chen -->
+
+<mapper namespace="${packagePrefix}.dao.UserRoleDAO">
+
+	<resultMap type="${packagePrefix}.dataobject.UserRoleDO" id="userRoleMap">
+        <result property="id" column="id" />
+        <result property="gmtCreate" column="gmt_create" />
+        <result property="gmtModify" column="gmt_modified" />
+        <result property="expiredTime" column="expired_time" />
+        <result property="userId" column="user_id" />
+        <result property="roleId" column="role_id" />
+        <result property="creator" column="creator" />
+        <result property="modifier" column="modifier" />
+
+    </resultMap>
+    
+    
+    <resultMap type="${packagePrefix}.dataobject.RoleUserDO" id="roleUserMap">
+    	<result property="id" column="id" />
+    	<result property="userId" column="user_id" />
+    	<result property="username" column="username" />
+    	<result property="name" column="name" />
+    	<result property="mobile" column="mobile" />
+    	<result property="roleId" column="role_id" />
+        <result property="creator" column="creator" />
+        <result property="gmtCreate" column="gmt_create" />
+        <result property="gmtModify" column="gmt_modified" />
+        <result property="expiredTime" column="expired_time" />
+
+    </resultMap>
+    
+    
+    <resultMap type="${packagePrefix}.dataobject.UserRoleExtDO" id="userRoleExtMap">
+    	<result property="id" column="id" />
+    	<result property="userId" column="user_id" />
+    	<result property="roleId" column="role_id" />
+    	<result property="roleCode" column="role_code" />
+    	<result property="roleName" column="role_name" />
+    	<result property="expiredTime" column="expired_time" />
+
+    </resultMap>
+    
+    
+    <sql id="AllColumns">
+		id,
+		gmt_create,
+		gmt_modified,
+		expired_time,
+		user_id,
+		role_id,
+		creator,
+		modifier
+    </sql>
+    
+    <sql id="InfoManageSet">
+        <set>
+			<if test="1 == 1">gmt_modified=now(),</if>
+			<if test="expiredTime != null">expired_time=#{expiredTime},</if>
+			<if test="userId != null">user_id=#{userId},</if>
+			<if test="roleId != null">role_id=#{roleId},</if>
+			<if test="creator != null">creator=#{creator},</if>
+			<if test="modifier != null">modifier=#{modifier},</if>
+
+        </set>
+    </sql>
+    
+    <sql id="Where_QueryCondition">
+        <where>
+			<if test="id != null">
+			    id = #{id} 
+			</if>
+     		<if test="userId != null">
+			    AND user_id = #{userId} 
+     		</if>
+     		<if test="roleId != null">
+			    AND role_id = #{roleId} 
+     		</if>
+
+	        
+	        
+	        <if test="minId != null">
+	            <![CDATA[
+	            AND id >= #{minId} 
+	        	]]>
+	        </if>
+	        <if test="maxId != null">
+	            <![CDATA[
+	            AND id <= #{maxId} 
+	        	]]>
+	        </if>
+	        <if test="ids != null and ids.size() > 0">
+	            AND id IN
+	            <foreach item="id" index="index" collection="ids"
+	                     open="(" separator="," close=")">
+	                #{id}
+	            </foreach>
+	        </if>
+	        <if test="gmtCreateRange != null and gmtCreateRange.start != null">
+	            <![CDATA[
+	            AND gmt_create >= #{gmtCreateRange.start} 
+	        	]]>
+	        </if>
+	        <if test="gmtCreateRange != null and gmtCreateRange.end != null">
+	            <![CDATA[
+	            AND gmt_create <= #{gmtCreateRange.end} 
+	        	]]>
+	        </if>
+	        <if test="gmtModifyRange != null and gmtModifyRange.start != null">
+	            <![CDATA[
+	            AND gmt_modified >= #{gmtModifyRange.start} 
+	        	]]>
+	        </if>
+	        <if test="gmtModifyRange != null and gmtModifyRange.end != null">
+	            <![CDATA[
+	            AND gmt_modified <= #{gmtModifyRange.end} 
+	        	]]>
+	        </if>
+        </where>
+    </sql>
+    
+    
+    <sql id="OrderBy">
+        <choose>
+	        <when test="orderByList != null and orderByList.size() > 0">
+	            <foreach item="orderby" index="index" collection="orderByList" open="" separator="," close="">
+                	${orderby.key} ${orderby.value}
+            	</foreach>
+	        </when>
+	        <otherwise>
+	            gmt_create DESC 
+	        </otherwise>
+        </choose>
+    </sql>
+    
+    <select id="getById" resultMap="userRoleMap">
+    	SELECT  
+    		<include refid="AllColumns" /> 
+    	FROM auth_user_role WHERE id = #{id} LIMIT 1
+    </select>
+    
+    <select id="getByUserIdAndRoleId" resultMap="userRoleMap">
+    	SELECT  
+    		<include refid="AllColumns" /> 
+    	FROM auth_user_role WHERE user_id = #{userId} 
+    	AND role_id = #{roleId} LIMIT 1
+    </select>
+    
+    <select id="queryUserRoles" parameterType="java.lang.Long" resultType="java.lang.Long">
+    	SELECT 
+    		role_id 
+    	FROM auth_user_role 
+    	WHERE 
+    	     user_id = #{userId} 
+        LIMIT 100
+    </select>
+    
+    
+    <select id="countUserRoleList" parameterType="${packagePrefix}.query.RoleUserQuery" resultType="java.lang.Integer">
+    	SELECT COUNT(a.id) 
+    	FROM auth_user_role a INNER JOIN auth_role b ON (
+    		a.role_id = b.id AND a.user_id=#{userId} AND b.status=1
+    		<if test="roleNameLike != null">
+			    AND b.role_name LIKE CONCAT('%', #{roleNameLike}, '%')  
+     		</if>
+    	)
+    </select>
+    
+    <select id="queryUserRoleList" parameterType="${packagePrefix}.query.RoleUserQuery" resultMap="userRoleExtMap">
+    	SELECT a.id,
+		   a.role_id,
+		   b.role_code,
+		   b.role_name,
+		   a.expired_time  
+    	FROM auth_user_role a INNER JOIN auth_role b ON (
+    		a.role_id = b.id AND a.user_id=#{userId} AND b.status=1
+    		<if test="roleNameLike != null">
+			    AND b.role_name LIKE CONCAT('%', #{roleNameLike}, '%')  
+     		</if>
+    	) 
+		LIMIT #{start}, #{limit}
+    </select>
+    
+    <select id="countRoleUserList" parameterType="${packagePrefix}.query.RoleUserQuery" resultType="java.lang.Integer">
+    	SELECT  COUNT(a.id) 
+		FROM auth_user_role a INNER JOIN login_user b ON (
+			a.role_id = #{roleId} AND a.user_id = b.id 
+			<if test="userId != null">
+			    AND a.user_id = #{userId} 
+     		</if>
+     		<if test="username != null">
+			    AND b.username = #{username} 
+     		</if>
+     		<if test="mobile != null">
+			    AND b.mobile = #{mobile} 
+     		</if>
+     		
+     		<if test="nameLike != null">
+			    AND b.name LIKE CONCAT('%', #{nameLike}, '%')  
+     		</if>
+		) 
+    </select>
+    
+    <select id="queryRoleUserList" parameterType="${packagePrefix}.query.RoleUserQuery" resultMap="roleUserMap">
+    	SELECT 
+		    a.id,
+			a.user_id, 
+			b.username, 
+			b.name,
+			b.mobile, 
+			a.role_id, 
+			a.expired_time, 
+			a.gmt_create, 
+			a.gmt_modified,
+			a.creator 
+		FROM auth_user_role a INNER JOIN login_user b ON (
+			a.role_id = #{roleId} AND a.user_id = b.id 
+			<if test="userId != null">
+			    AND a.user_id = #{userId} 
+     		</if>
+     		<if test="username != null">
+			    AND b.username = #{username} 
+     		</if>
+     		<if test="mobile != null">
+			    AND b.mobile = #{mobile} 
+     		</if>
+     		<if test="nameLike != null">
+			    AND b.name LIKE CONCAT('%', #{nameLike}, '%')  
+     		</if>
+		) 
+		ORDER BY a.gmt_create DESC 
+		LIMIT #{start}, #{limit}
+    </select>
+    
+    
+    <select id="queryList" parameterType="${packagePrefix}.query.UserRoleQuery" resultMap="userRoleMap">
+    	SELECT  
+    		<include refid="AllColumns" />
+    	FROM auth_user_role  
+    	<if test="forceIndex != null">
+		FORCE INDEX(${forceIndex}) 
+    	</if>
+    	<include refid="Where_QueryCondition" />
+    	ORDER BY 
+    		<include refid="OrderBy" /> 
+        LIMIT #{start}, #{limit}
+    </select>
+    
+    <select id="count" parameterType="${packagePrefix}.query.UserRoleQuery" resultType="java.lang.Integer">
+    	SELECT count(id) 
+    	FROM auth_user_role  
+    	<if test="forceIndex != null">
+		FORCE INDEX(${forceIndex}) 
+    	</if>
+    	<include refid="Where_QueryCondition" />
+    </select>
+
+    <insert id="insert" parameterType="${packagePrefix}.dataobject.UserRoleDO" useGeneratedKeys="true" keyProperty="id">
+        INSERT auth_user_role 
+        <include refid="InfoManageSet" />
+    </insert>
+    
+    <insert id="insertBatch" parameterType="java.util.List" useGeneratedKeys="true" keyProperty="id"> 
+	    INSERT INTO auth_user_role(gmt_create,gmt_modified,expired_time,user_id,role_id,creator,modifier)  
+	    VALUES 
+	    <foreach collection="list" item="obj" index="index" separator=",">  
+	       (now(),now(),#{obj.expiredTime},#{obj.userId},#{obj.roleId},#{obj.creator},#{obj.modifier})  
+	    </foreach>  
+    </insert>
+
+    <update id="update" parameterType="${packagePrefix}.dataobject.UserRoleDO">
+        UPDATE auth_user_role 
+        <include refid="InfoManageSet" />
+        WHERE id = #{id} 
+        <if test="version != null">
+            AND version=#{version}
+        </if>
+    </update>
+    
+    <update id="prolongExpiredTime" parameterType="${packagePrefix}.dataobject.UserRoleDO">
+        UPDATE auth_user_role 
+        SET expired_time = #{expiredTime} 
+        <if test="modifier != null">
+        	,modifier=#{modifier}
+        </if>
+        WHERE id = #{id} 
+    </update>
+    
+    
+    <delete id="deleteById">
+    	DELETE FROM auth_user_role WHERE id = #{id}
+    </delete>
+    
+    <delete id="deleteByUserId">
+    	DELETE FROM auth_user_role WHERE user_id = #{userId}
+    </delete>
+    
+
+</mapper>

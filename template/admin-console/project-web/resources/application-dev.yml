@@ -1,0 +1,144 @@
+application:
+  env: DEV
+spring:
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    password: root12345678
+    database: 1
+    timeout: 6000
+    lettuce:
+      pool:
+          max-active: 20
+          max-idle: 20
+          min-idle: 5
+          max-wait: 5000
+
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/test?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=UTF8&zeroDateTimeBehavior=convertToNull&autoReconnect=true&allowMultiQueries=true&tinyInt1isBit=false&useSSL=false
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      validation-query: SELECT 1 FROM DUAL
+      initial-size: 5
+      min-idle: 5
+      max-active: 20
+      max-wait: 10000
+      min-evictable-idle-time-millis: 300000
+      time-between-eviction-runs-millis: 60000
+      test-while-idle: true
+      test-on-borrow: true
+      test-on-return: true
+      filters: stat,wall,slf4j
+      filter.stat:
+        log-slow-sql: true
+        slow-sql-millis: 1
+      web-stat-filter:
+        enabled: true
+        url-pattern: /*
+        exclusions: "*.gif,*.png,*.jpg,*.html,*.js,*.css,*.ico,/druid/*"
+      stat-view-servlet:
+        enabled: true
+        url-pattern: /druid/*
+        reset-enable: false
+        login-username: admin
+        login-password: admin
+
+  http:
+      multipart: 
+        maxFileSize: 50MB
+        maxRequestSize: 50MB
+
+  freemarker: 
+    cache: false
+    charset: UTF-8
+    content-type: text/html
+    check-template-location: true
+    request-context-attribute: rc
+    suffix: .ftl
+    template-loader-path: classpath:/templates/
+
+  mail:
+    host: smtp.qiye.aliyun.com
+    username: no-reply@xinc818.com
+    password: www@xinc818
+    properties:
+      mail:
+        smtp:
+          auth: true
+          ssl:
+            enable: true
+          starttls:
+            enable: true
+            required: true
+
+  ldap:
+    urls: ldap://ldap.xinc818.com:1389
+    base: dc=xincheng,dc=org
+    username: cn=admin-aibox,ou=Users,dc=xincheng,dc=org
+    password: sWYV#HF59P53_-$fApay
+    base-environment:
+      userId: cn
+      userBaseDN: ou=Users
+      userObjectClass: inetOrgPerson
+      groupId: cn
+      groupBaseDN: ou=Groups
+      groupObjectClass: groupOfUniqueNames
+      groupMember: uniqueMember
+
+
+server:
+  servlet:
+    context-path: /${appName}
+  port: 8080
+
+
+swagger:
+  enable: true
+
+mybatis:
+  config-location: classpath:mybatis/mybatis-config.xml
+  mapper-locations: classpath:mybatis/mapper/**/*.xml
+  configuration.map-underscore-to-camel-case: true
+
+mybatis-plus:
+  mapper-locations: classpath*:mybatis/mapper/**/*.xml
+  type-aliases-package: ${packagePrefix}.dataobject
+
+dingtalk:
+  aks:
+    master: 62a22374d5a40ef992db71bfd001217b633c1f0ed1c81dee9956eee48a4045c9,a1dbf983a2939754c061c05136a3aa4169336fa41bbb920a5fc6551d69741689,0b21ce0e2893124033a8e2527915a6b5023e37c07b054fe1e4243ce59245b426
+    slave: d3f67826abb4eb8e6451c54ebaf5151ea838a227525048c71b57c1ac54bae5b6,3d0ab28a8e4619ec7a72e60843ffd3972229ceca7a14bf61308756c5e1a35da7,142ae410b5b6c7459d29ccd15ccc7e4667f8247f458c18984a4f2472b06fd275
+
+wechat:
+  mp:
+    databox:
+        appId: xxx
+        appSecret: xxx
+        getAccessToken: https://api.weixin.qq.com/cgi-bin/token?appid={appid}&secret={secret}&grant_type=client_credential
+    login:
+        getSessionKeyUrl: https://api.weixin.qq.com/sns/jscode2session?appid={appid}&secret={secret}&js_code={code}&grant_type=authorization_code
+    session:
+        expiredDayNum: 30
+
+system:
+  configs:
+    env: dev
+    skin: green
+    loginCheck: false
+    appVersion: 1.0.1
+    appName: demo
+    cookieKey: dsp
+    bwlCacheRefreshInterval: 300
+    redisPublishTopics: BLACK_WHITE_NAME
+    noLoginUris: /console/login, /console/user/forgetPassword, 
+                 /admin/user/login, /admin/user/loginConfirm, /admin/user/getTokenKey, 
+                 /admin/user/password/forget, /admin/user/password/forget/sms
+
+            
