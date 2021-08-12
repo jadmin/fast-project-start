@@ -137,7 +137,7 @@
     <select id="findRoleMenu" resultMap="menuModuleMap">
     	SELECT m.id, m.parent_id, m.name, m.type, m.uri, m.icon_css, m.attributes 
 		FROM auth_menu_module m INNER JOIN (
- 			SELECT menu_id FROM auth_role_menu WHERE 
+ 			SELECT DISTINCT menu_id FROM auth_role_menu WHERE 
  			  role_id IN
 	           <foreach item="rid" index="index" collection="roleIdList"
 	                     open="(" separator="," close=")">
