@@ -130,7 +130,7 @@ wechat:
 system:
   configs:
     env: dev
-    skin: green
+    skin: changed
     loginCheck: false
     appVersion: 1.0.1
     appName: demo

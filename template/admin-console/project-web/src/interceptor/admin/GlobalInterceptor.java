@@ -14,6 +14,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
+import ${packagePrefix}.utils.WebSkins;
+
 import ${packagePrefix}.common.utils.LoginUserHolder;
 import ${packagePrefix}.common.utils.Utils;
 import ${packagePrefix}.config.BaseConfig;
@@ -51,7 +53,7 @@ public class GlobalInterceptor extends BaseConfig implements HandlerInterceptor 
 		if(null != modelAndView) {
 			modelAndView.addObject("isLogined", null != LoginUserHolder.get());
 			modelAndView.addObject("version", systemConfigs.getAppVersion());
-			modelAndView.addObject("skin", "skin-" + systemConfigs.getSkin());
+			modelAndView.addObject("skin", "skin-" + WebSkins.getSkinActually(systemConfigs.getSkin()));
 			initFreemarkerStaticUtils(modelAndView);
 			if(null != request) {
 				modelAndView.addObject("servletPath", request.getServletPath());
