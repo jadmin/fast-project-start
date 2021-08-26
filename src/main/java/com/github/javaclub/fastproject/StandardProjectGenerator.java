@@ -28,7 +28,8 @@ import com.github.javaclub.sword.util.PropUtil;
  */
 public class StandardProjectGenerator {
 	
-	static final String APP_STANDARD = "admin-console";
+	// standard / admin-console
+	static final String APP_STANDARD = "standard";
 	
 	static final String GROUP_ID = "groupId";
 	static final String APP_NAME = "appName";
